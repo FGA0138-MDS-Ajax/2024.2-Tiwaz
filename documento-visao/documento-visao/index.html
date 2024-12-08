@@ -1,0 +1,1276 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../../documento-requisitos/documento-requisitos/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
+    
+    
+      
+        <title>Documento de Visão - Documentação</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#visao-geral-do-produto" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Documentação" class="md-header__button md-logo" aria-label="Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentação
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Documento de Visão
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentação" class="md-nav__button md-logo" aria-label="Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Documentação
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instruções mkdocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Documento de Visão
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Visão
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#visao-geral-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      VISÃO GERAL DO PRODUTO
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VISÃO GERAL DO PRODUTO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Problema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contexto:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detalhamento-do-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detalhamento do problema:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#justificativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Justificativa:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declaracao-de-posicao-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Declaração de Posição do Produto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objetivos-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objetivos do Produto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Objetivos do Produto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#melhorar-a-gestao-das-plantacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Melhorar a Gestão das Plantações:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aumentar-a-precisao-das-previsoes-meteorologicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aumentar a Precisão das Previsões Meteorológicas:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otimizar-a-gestao-financeira" class="md-nav__link">
+    <span class="md-ellipsis">
+      Otimizar a Gestão Financeira:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facilitar-a-tomada-de-decisoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Facilitar a Tomada de Decisões:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tecnologias-utilizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tecnologias utilizadas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#react-native" class="md-nav__link">
+    <span class="md-ellipsis">
+      React Native:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node.js:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#banco-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Banco de Dados:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      APIs:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ferramentas-de-desenvolvimento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ferramentas De Desenvolvimento:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodologia-agil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metodologia Ágil:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visao-geral-do-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      VISÃO GERAL DO PROJETO
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VISÃO GERAL DO PROJETO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ciclo-de-vida-do-projeto-de-desenvolvimento-de-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ciclo de vida do projeto de desenvolvimento de software
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ciclo de vida do projeto de desenvolvimento de software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metodologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metodologia:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processo:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procedimentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procedimentos:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métodos:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ferramentas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ferramentas:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documento-requisitos/documento-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Requisitos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documento-arquitetura/documento-arquitetura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Arquitetura
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documento-plano-testes/documento-plano-testes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Plano de Testes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Atas de Reunião
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Atas de Reunião
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/ata-reuniao-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#visao-geral-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      VISÃO GERAL DO PRODUTO
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VISÃO GERAL DO PRODUTO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Problema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contexto:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detalhamento-do-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detalhamento do problema:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#justificativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Justificativa:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declaracao-de-posicao-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Declaração de Posição do Produto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objetivos-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objetivos do Produto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Objetivos do Produto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#melhorar-a-gestao-das-plantacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Melhorar a Gestão das Plantações:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aumentar-a-precisao-das-previsoes-meteorologicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aumentar a Precisão das Previsões Meteorológicas:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#otimizar-a-gestao-financeira" class="md-nav__link">
+    <span class="md-ellipsis">
+      Otimizar a Gestão Financeira:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facilitar-a-tomada-de-decisoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Facilitar a Tomada de Decisões:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tecnologias-utilizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tecnologias utilizadas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#react-native" class="md-nav__link">
+    <span class="md-ellipsis">
+      React Native:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node.js:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#banco-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Banco de Dados:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      APIs:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ferramentas-de-desenvolvimento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ferramentas De Desenvolvimento:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodologia-agil" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metodologia Ágil:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visao-geral-do-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      VISÃO GERAL DO PROJETO
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VISÃO GERAL DO PROJETO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ciclo-de-vida-do-projeto-de-desenvolvimento-de-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ciclo de vida do projeto de desenvolvimento de software
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ciclo de vida do projeto de desenvolvimento de software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metodologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metodologia:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processo:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procedimentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procedimentos:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Métodos:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ferramentas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ferramentas:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Documento de Visão</h1>
+
+<p><strong>Integrantes do Grupo:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Mat.</th>
+<th style="text-align: left;">Nome</th>
+<th style="text-align: left;">Função (responsabilidade)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">202016865</td>
+<td style="text-align: left;">Luis Felipe de Souza Braga</td>
+<td style="text-align: left;">Desenvolvedor</td>
+</tr>
+<tr>
+<td style="text-align: left;">231029725</td>
+<td style="text-align: left;">Mateus de Sousa Soares</td>
+<td style="text-align: left;">Desenvolvedor</td>
+</tr>
+<tr>
+<td style="text-align: left;">231034073</td>
+<td style="text-align: left;">Artur Cardoso da Silva</td>
+<td style="text-align: left;">Desenvolvedor</td>
+</tr>
+<tr>
+<td style="text-align: left;">231012100</td>
+<td style="text-align: left;">Felipe Henrique Oliveira Sousa</td>
+<td style="text-align: left;">Desenvolvedor</td>
+</tr>
+<tr>
+<td style="text-align: left;">231028989</td>
+<td style="text-align: left;">Joao Pedro Ferreira Moraes</td>
+<td style="text-align: left;">Desenvolvedor</td>
+</tr>
+<tr>
+<td style="text-align: left;">231026616</td>
+<td style="text-align: left;">Davi Emanuel Ribeiro de Oliveira</td>
+<td style="text-align: left;">Desenvolvedor</td>
+</tr>
+<tr>
+<td style="text-align: left;">202017147</td>
+<td style="text-align: left;">Thales Germano Vargas Lima</td>
+<td style="text-align: left;">Desenvolvedor</td>
+</tr>
+<tr>
+<td style="text-align: left;">211031593</td>
+<td style="text-align: left;">Andre Lopes de Sousa</td>
+<td style="text-align: left;">Desenvolvedor</td>
+</tr>
+<tr>
+<td style="text-align: left;">231011972</td>
+<td style="text-align: left;">Cauã Reis de Freitas</td>
+<td style="text-align: left;">Desenvolvedor</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Histórico de Revisões</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Data</th>
+<th style="text-align: left;">Versão</th>
+<th style="text-align: left;">Descrição</th>
+<th style="text-align: left;">Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>27/11/2024</strong></td>
+<td style="text-align: left;">1.0</td>
+<td style="text-align: left;">Primeira versão do documento</td>
+<td style="text-align: left;">Todos Do Grupo</td>
+</tr>
+</tbody>
+</table>
+<h2 id="visao-geral-do-produto"><strong>VISÃO GERAL DO PRODUTO</strong></h2>
+<h3 id="problema"><strong>Problema</strong></h3>
+<h4 id="contexto">Contexto:</h4>
+<p>Muitos agricultores enfrentam dificuldades no gerenciamento eficaz de suas plantações devido à falta de ferramentas adequadas para monitorar e registrar atividades agrícolas. Além disso, a falta de sistemas de previsão meteorológica afeta negativamente a capacidade dos agricultores se prepararem para condições climáticas adversas, como chuvas intensas, que podem prejudicar certas culturas.</p>
+<h4 id="detalhamento-do-problema">Detalhamento do problema:</h4>
+<ul>
+<li>
+<p>Falta de Controle e Registro: Agricultores não possuem um histórico completo das atividades agrícolas, incluindo plantio, colheita, adubação e valores de venda. </p>
+</li>
+<li>
+<p>Previsão Meteorológica Inadequada: Não há um sistema eficaz para prever o tempo com antecedência suficiente, o que impede a preparação adequada para condições climáticas adversas. </p>
+</li>
+<li>
+<p>Gestão Financeira Ineficiente: Sem registros detalhados, os agricultores têm dificuldades para calcular os custos e lucros de cada plantação.</p>
+</li>
+<li>
+<p>O diagrama abaixo representa o problema central do gerenciamento de plantações e ajuda a visualizar e entender as origens do problema: </p>
+</li>
+</ul>
+<p><img alt="Figura 1" src="../diagrama-1.png" />
+<center>
+Figura 1: Diagrama espinha de peixe
+</center></p>
+<h4 id="justificativa">Justificativa:</h4>
+<ul>
+<li>
+<p>O desenvolvimento dessa aplicação mobile visa solucionar os principais problemas enfrentados pelos agricultores, proporcionando uma ferramenta robusta para o gerenciamento eficaz das plantações, aumentando a produtividade e a lucratividade das operações agrícolas.</p>
+</li>
+<li>
+<p>Essa solução pode contribuir para a resolução do problema por meio da centralização das informações, Previsão climática avançada, gestão financeira eficiente, automatização do processo, comunicação e relatórios.</p>
+</li>
+<li>
+<p>Espera-se que a implementação dessa solução não apenas resolva os problemas de desorganização e falta de controle, mas também otimize os processos agrícolas, contribuindo para o aumento da produtividade e rentabilidade dos pequenos e médios produtores rurais. </p>
+</li>
+</ul>
+<h3 id="declaracao-de-posicao-do-produto"><strong>Declaração de Posição do Produto</strong></h3>
+<p><center>Tabela 1: Declaração de posição do produto</center></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Item</th>
+<th style="text-align: left;">Descrição</th>
+<th style="text-align: left;">Comentário</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Para: </td>
+<td style="text-align: left;">Agricultores e pequenos produtores rurais.</td>
+<td style="text-align: left;">Foco em um público que carece de ferramentas tecnológicas acessíveis para gerenciar suas plantações de forma eficiente.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Necessidade:    </td>
+<td style="text-align: left;">Facilitar o gerenciamento completo das plantações, desde o cadastro até a colheita, com previsões climáticas precisas.</td>
+<td style="text-align: left;">A necessidade identificada reflete a falta de controle organizado e de informações meteorológicas confiáveis no dia a dia dos pequenos e médios produtores.</td>
+</tr>
+<tr>
+<td style="text-align: left;">O (nome do produto):</td>
+<td style="text-align: left;">É um aplicativo mobile para controle de plantações, gestão financeira e previsão meteorológica. [Nome do Produto]</td>
+<td style="text-align: left;">A proposta do produto é oferecer uma solução centralizada e acessível para a gestão agrícola, usando tecnologia mobile.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Que:    </td>
+<td style="text-align: left;">Fornece aos agricultores controle total sobre suas plantações, incluindo histórico de plantio, colheita, adubação e notificações de chuvas.</td>
+<td style="text-align: left;">As funcionalidades abrangem todas as etapas do processo agrícola, facilitando a tomada de decisão baseada em dados históricos e previsões.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ao contrário: </td>
+<td style="text-align: left;">Sistemas manuais ou inexistentes, que não fornecem dados centralizados e precisos.</td>
+<td style="text-align: left;">Diferencia-se das práticas tradicionais (como anotações em papel), que são ineficazes para fornecer uma visão integrada da plantação.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Nosso produto: </td>
+<td style="text-align: left;">Oferece uma solução integrada, com notificações meteorológicas e relatórios detalhados, diferenciando-se por atender às necessidades específicas de pequenos e médios produtores.</td>
+<td style="text-align: left;">A integração das funcionalidades, especialmente as notificações antecipadas de chuvas, é um diferencial competitivo importante.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="objetivos-do-produto"><strong>Objetivos do Produto</strong></h3>
+<h4 id="melhorar-a-gestao-das-plantacoes">Melhorar a Gestão das Plantações:</h4>
+<ul>
+<li>
+<p>Cadastro e Monitoramento: Permitir que os agricultores registrem e monitorem detalhadamente todas as atividades agrícolas, incluindo plantio, adubação e colheita. </p>
+</li>
+<li>
+<p>Histórico de Atividades: Manter um histórico completo e acessível das atividades realizadas nas plantações, visando uma análise futura e melhor tomada de decisões.</p>
+</li>
+</ul>
+<h4 id="aumentar-a-precisao-das-previsoes-meteorologicas">Aumentar a Precisão das Previsões Meteorológicas:</h4>
+<ul>
+<li>
+<p>Notificações Antecipadas: Implementar um sistema de notificações meteorológicas que avise os agricultores, com antecedência mínima de 12 horas, sobre a previsão de chuva ou outras condições climáticas adversas.</p>
+</li>
+<li>
+<p>Preparação para Clima Adverso: Ajudar os agricultores a se prepararem adequadamente para condições climáticas adversas, diminuindo perdas e danos às plantações.</p>
+</li>
+</ul>
+<h4 id="otimizar-a-gestao-financeira">Otimizar a Gestão Financeira:</h4>
+<ul>
+<li>
+<p>Relatórios Financeiros Detalhados: Fornecer ferramentas para gerar relatórios detalhados sobre custos, receitas e lucros das plantações.</p>
+</li>
+<li>
+<p>Controle de Insumos: Monitorar e registrar o uso de insumos agrícolas, como fertilizantes e pesticidas, para otimizar custos e melhorar a eficiência.</p>
+</li>
+</ul>
+<h4 id="facilitar-a-tomada-de-decisoes">Facilitar a Tomada de Decisões:</h4>
+<ul>
+<li>
+<p>Análises e Relatórios: Oferecer análises detalhadas e relatórios gerais sobre o desempenho das plantações, permitindo que os agricultores tomem decisões baseadas em dados concretos.</p>
+</li>
+<li>
+<p>Previsão de Produção e Vendas: Ajudar na previsão de produção e planejamento de vendas, com base nos dados históricos e nas tendências atuais.  </p>
+</li>
+</ul>
+<h3 id="tecnologias-utilizadas"><strong>Tecnologias utilizadas</strong></h3>
+<h3 id="react-native">React Native:</h3>
+<ul>
+<li>React Native permite o desenvolvimento de aplicativos móveis para Android e iOS com um único código-fonte, economizando tempo.</li>
+<li>Frontend: Ideal para interfaces de usuário modernas e responsivas.</li>
+<li>Expo: Facilita o desenvolvimento, construção e teste de aplicativos sem necessidade de configuração complexa.</li>
+<li>Context API: Um sistema leve de gerenciamento de estado nativo do React, ideal para projetos pequenos ou médios que não precisam de bibliotecas mais robustas como Redux.</li>
+</ul>
+<h3 id="nodejs">Node.js:</h3>
+<ul>
+<li>Node.js é rápido, eficiente e baseado em JavaScript, permitindo o uso de uma única linguagem para backend e frontend.</li>
+<li>Express: Um framework minimalista que acelera o desenvolvimento de APIs RESTful.</li>
+<li>JWT: Garante autenticação segura com tokens, essencial para proteger os dados do usuário.</li>
+</ul>
+<h3 id="design">Design:</h3>
+<ul>
+<li>Figma: Ferramenta de design colaborativo, ideal para criar protótipos.</li>
+<li>Canva: Criar gráficos e elementos visuais simples.</li>
+</ul>
+<h3 id="banco-de-dados">Banco de Dados:</h3>
+<ul>
+<li>MySQL: Um banco de dados relacional amplamente utilizado e bem documentado, ideal para dados estruturados como informações de usuários, registros de vendas e histórico de atividades agrícolas.</li>
+<li>Firebase (Cloud Firestore): Oferece escalabilidade e sincronização em tempo real, ideal para notificações e atualizações dinâmicas no aplicativo.</li>
+</ul>
+<h3 id="apis">APIs:</h3>
+<ul>
+<li>AccuWeather ou Weatherstack: APIs confiáveis para previsão do tempo, essenciais para alertar os agricultores sobre mudanças climáticas.</li>
+<li>Google Maps API ou OpenStreetMap: Oferecem recursos de geolocalização e mapeamento, úteis para identificar propriedades e terrenos agrícolas.</li>
+<li>Twilio, OneSignal ou Pusher: Para Notificacoes em tempo real.</li>
+</ul>
+<h3 id="ferramentas-de-desenvolvimento">Ferramentas De Desenvolvimento:</h3>
+<ul>
+<li>Visual Studio Code</li>
+<li>Git e GitHub</li>
+<li>Expo CLI</li>
+<li>Android Studio</li>
+</ul>
+<h3 id="metodologia-agil">Metodologia Ágil:</h3>
+<ul>
+<li>SCRUM: Foco na entrega incremental e iterativa, com sprints bem definidos e reuniões de acompanhamento.</li>
+<li>XP: Boas práticas de desenvolvimento, como testes contínuos, código simples e feedback constante.</li>
+</ul>
+<h2 id="visao-geral-do-projeto"><strong>VISÃO GERAL DO PROJETO</strong></h2>
+<h3 id="ciclo-de-vida-do-projeto-de-desenvolvimento-de-software"><strong>Ciclo de vida do projeto de desenvolvimento de software</strong></h3>
+<p><img alt="Figura 2" src="../diagrama-2.png" />
+<center>
+Figura 2: Ciclo de vida do projeto
+</center></p>
+<h4 id="metodologia">Metodologia:</h4>
+<ul>
+<li>Usando um ciclo de vida ágil como metodologia para responder bem às frequentes mudanças, realizar entregas rápidas e obter feedbacks constantes do cliente.</li>
+<li>Essa abordagem permite um desenvolvimento centrado no cliente, garantindo a qualidade do produto.</li>
+</ul>
+<h4 id="processo">Processo:</h4>
+<ul>
+<li>Utilizando Scrum para estruturar e gerenciar o projeto em constante comunicação com o cliente com entregas frequentes para o cliente.</li>
+<li>XP usa feedback rápido e comunicação com alta taxa de disponibilidade para maximizar a entrega de valor, por meio de um cliente no local, uma abordagem de planejamento específica e testes constantes.</li>
+</ul>
+<h4 id="procedimentos">Procedimentos:</h4>
+<ul>
+<li>Planejamento: Dividir o Product Backlog em tarefas menores e organizá-las por prioridade, usando técnicas como Story Mapping para identificar prioridades.</li>
+<li>Desenvolvimento: Práticas do XP como Programação em pares, com dois desenvolvedores trabalhando juntos no mesmo código. Alem de usar práticas do Scrum como a Integração contínua, verificando constantemente o código para evitar problemas quando adicionado uma nova funcionalidade.</li>
+<li>Entrega e feedback: Liberar releases intermediárias, versões incrementais e obter feedback imediato do cliente para possíveis ajustes.</li>
+</ul>
+<h4 id="metodos">Métodos:</h4>
+<ul>
+<li>Acompanhamento de projeto diretamente com o project owner dando feedbacks sobre aplicação aos desenvolvedores evitando erros de interpretação;</li>
+<li>Verificação e validação conjunto de atividades conduzidas ao longo do ciclo de vida de um projeto de software para garantir a qualidade do produto de software entregue ao final do desenvolvimento;</li>
+<li>Processos formais de entrega para validação rápida e ágil.</li>
+</ul>
+<h4 id="ferramentas">Ferramentas:</h4>
+<ul>
+<li>React native: front-end;</li>
+<li>Node.js: back-end;</li>
+<li>Canva: design;</li>
+<li>GitHub: controle de versão. </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
