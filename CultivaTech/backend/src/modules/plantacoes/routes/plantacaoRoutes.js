@@ -7,5 +7,7 @@ router.post('/', plantacaoController.cadastrarPlantacao); // CREATE
 router.get('/', plantacaoController.listarPlantacoes); // READ (ALL)
 router.put('/:id', plantacaoController.atualizarPlantacao); // UPDATE
 router.delete('/:id', plantacaoController.excluirPlantacao); // DELETE
+router.get("/plantacoes", plantacaoController.listarPlantacoes);
+
 
 module.exports = router;

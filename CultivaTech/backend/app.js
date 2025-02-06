@@ -28,7 +28,7 @@ app.use('/api/estoque', estoqueRoutes);
 
 
 // Inicializar o banco de dados
-sequelize.sync({ force: true }) // Use force: true apenas para recriar tabelas
+sequelize.sync({ force: false }) // Use force: true apenas para recriar tabelas
   .then(() => {
     console.log('Banco de dados sincronizado!');
   })
