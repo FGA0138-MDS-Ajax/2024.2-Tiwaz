@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   SafeAreaView,
+  Alert,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -18,6 +19,7 @@ export default function GerenciarPlantacoes({ navigation }) {
       plantingDate: "10/01/2025",
       measure: "2 hectares",
       cost: "R$ 10.000,00",
+      status: "Ativa",
     },
     {
       id: 2,
@@ -26,6 +28,7 @@ export default function GerenciarPlantacoes({ navigation }) {
       plantingDate: "05/01/2025",
       measure: "5 hectares",
       cost: "R$ 20.000,00",
+      status: "Ativa",
     },
     {
       id: 3,
@@ -34,19 +37,70 @@ export default function GerenciarPlantacoes({ navigation }) {
       plantingDate: "08/01/2025",
       measure: "15 hectares",
       cost: "R$ 50.000,00",
+      status: "Ativa",
     },
   ]);
 
-  const handleAction = (action, id) => {
-    console.log(`${action} da plantação com ID ${id}`);
-  };
-
+  // Navega para a tela de visualização individual da plantação
   const navigateToVisualizacao = (plantacao) => {
     navigation.navigate("VizualizarPlantacaoIndividual", {
       plantacaoId: plantacao.id,
       plantacaoData: plantacao,
     });
-  }
+  };
+
+  // Função para editar: navega para uma tela de edição
+  const handleEditar = (id) => {
+    const plantacao = plantacoes.find((p) => p.id === id);
+    if (plantacao) {
+      navigation.navigate("EditarPlantacao", { plantacao });
+    }
+  };
+
+  // Função para fechamento: atualiza o status da plantação para "Fechado"
+  const handleFechamento = (id) => {
+    Alert.alert(
+      "Fechamento",
+      "Deseja fechar esta plantação?",
+      [
+        { text: "Cancelar", style: "cancel" },
+        {
+          text: "Confirmar",
+          onPress: () => {
+            setPlantacoes((prev) =>
+              prev.map((p) =>
+                p.id === id ? { ...p, status: "Fechado" } : p
+              )
+            );
+            Alert.alert("Sucesso", "Plantação fechada com sucesso!");
+          },
+        },
+      ],
+      { cancelable: false }
+    );
+  };
+
+  // Função para excluir: remove a plantação do estado após confirmação
+  const handleExcluir = (id) => {
+    Alert.alert(
+      "Excluir Plantação",
+      "Tem certeza que deseja excluir esta plantação?",
+      [
+        { text: "Cancelar", style: "cancel" },
+        {
+          text: "Excluir",
+          onPress: () =>
+            setPlantacoes((prev) => prev.filter((p) => p.id !== id)),
+        },
+      ],
+      { cancelable: false }
+    );
+  };
+
+  // Função para gerar relatório: navega para uma tela de relatório
+  const handleRelatorio = (id) => {
+    navigation.navigate("Relatorios", { plantacaoId: id });
+  };
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -66,9 +120,7 @@ export default function GerenciarPlantacoes({ navigation }) {
             <View style={styles.plantacaoDetails}>
               <View style={styles.detailRow}>
                 <Ionicons name="leaf" size={20} color="#388E3C" />
-                <Text style={styles.detailText}>
-                  Tipo: {plantacao.type}
-                  </Text>
+                <Text style={styles.detailText}>Tipo: {plantacao.type}</Text>
               </View>
               <View style={styles.detailRow}>
                 <Ionicons name="expand" size={20} color="#388E3C" />
@@ -88,28 +140,41 @@ export default function GerenciarPlantacoes({ navigation }) {
                   Custo Inicial: {plantacao.cost}
                 </Text>
               </View>
+              {plantacao.status && (
+                <View style={styles.detailRow}>
+                  <Ionicons name="information-circle" size={20} color="#1976D2" />
+                  <Text style={styles.detailText}>Status: {plantacao.status}</Text>
+                </View>
+              )}
             </View>
             <View style={styles.actionButtons}>
               <TouchableOpacity
-                onPress={() => handleAction("Editar", plantacao.id)}
+                onPress={() => handleEditar(plantacao.id)}
                 style={styles.actionButton}
               >
                 <Ionicons name="pencil" size={25} color="#388E3C" />
                 <Text style={styles.actionText}>Editar</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={() => handleAction("Fechamento", plantacao.id)}
+                onPress={() => handleFechamento(plantacao.id)}
                 style={styles.actionButtonFechamento}
               >
                 <Ionicons name="lock-closed" size={25} color="#FFCA28" />
                 <Text style={styles.actionText}>Fechamento</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={() => handleAction("Excluir", plantacao.id)}
+                onPress={() => handleExcluir(plantacao.id)}
                 style={styles.actionButtonExcluir}
               >
                 <Ionicons name="trash" size={25} color="#E53935" />
                 <Text style={styles.actionText}>Excluir</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => handleRelatorio(plantacao.id)}
+                style={styles.actionButtonRelatorio}
+              >
+                <Ionicons name="document-text" size={25} color="#1976D2" />
+                <Text style={styles.actionText}>Relatório</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -121,7 +186,9 @@ export default function GerenciarPlantacoes({ navigation }) {
         onPress={() => navigation.navigate("CadastroPlantacao")}
       >
         <Ionicons name="add" size={28} color="#fff" />
-        <Text style={styles.newPlantacaoButtonText}>Cadastrar Plantação</Text>
+        <Text style={styles.newPlantacaoButtonText}>
+          Cadastrar Plantação
+        </Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -178,6 +245,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     marginTop: 15,
+    flexWrap: "wrap",
   },
   actionButton: {
     alignItems: "center",
@@ -186,6 +254,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 10,
     width: 80,
+    marginVertical: 5,
   },
   actionButtonFechamento: {
     alignItems: "center",
@@ -194,6 +263,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 10,
     width: 80,
+    marginVertical: 5,
   },
   actionButtonExcluir: {
     alignItems: "center",
@@ -202,11 +272,22 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 10,
     width: 80,
+    marginVertical: 5,
+  },
+  actionButtonRelatorio: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#E0E0E0",
+    paddingVertical: 10,
+    borderRadius: 10,
+    width: 80,
+    marginVertical: 5,
   },
   actionText: {
     fontSize: 14,
     color: "#000",
     marginTop: 5,
+    textAlign: "center",
   },
   newPlantacaoButton: {
     flexDirection: "row",

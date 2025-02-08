@@ -4,11 +4,14 @@ const port = 3000;
 const cors = require('cors');
 
 
+
 const custosRoutes = require('./src/modules/custos/routes/custoRoutes.js');
 const colheitaRoutes = require('./src/modules/colheitas/routes/colheitaRoutes.js');
 const plantacaoRoutes = require('./src/modules/plantacoes/routes/plantacaoRoutes.js');
 const previsaoRoutes = require('./src/modules/previsaoDoTempo/previsaoRoutes.js');
 const estoqueRoutes = require('./src/modules/estoque/routes/estoqueRoutes.js');
+const notificationRoutes = require('./src/modules/notifications/routes/notificationRoutes');
+const relatoriosRoutes = require('./src/modules/relatorios/relatoriosRoutes/relatoriosRoutes.js');
 
 const sequelize = require('./src/config/database.js');
 
@@ -25,10 +28,10 @@ app.use('/api/custos', custosRoutes);
 app.use('/api/colheitas', colheitaRoutes);
 app.use('/api/weather', previsaoRoutes);
 app.use('/api/estoque', estoqueRoutes);
-
-
+app.use('/api/notifications', notificationRoutes);
+app.use('/api/relatorios', relatoriosRoutes);
 // Inicializar o banco de dados
-sequelize.sync({ force: true }) // Use force: true apenas para recriar tabelas
+sequelize.sync({ force: false }) // Use force: true apenas para recriar tabelas
   .then(() => {
     console.log('Banco de dados sincronizado!');
   })
@@ -37,9 +40,9 @@ sequelize.sync({ force: true }) // Use force: true apenas para recriar tabelas
 // Subir o servidor
 
 app.listen(port, (error) => {
-    if (error) {
-        console.log('Deu erro');
-        return;
-    }
-    console.log("Subiu show");
+  if (error) {
+    console.log('Deu erro');
+    return;
+  }
+  console.log("Subiu show");
 });
