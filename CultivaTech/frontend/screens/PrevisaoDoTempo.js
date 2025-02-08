@@ -15,7 +15,6 @@ import { Ionicons } from "@expo/vector-icons";
 import * as Location from "expo-location";
 import {getPrevisao} from "../services/previsao"; // Importando a funcao de buscar a previsao do tempo
 
-
 export default function WeatherForecastScreen() {
   const [refreshing, setRefreshing] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
@@ -23,14 +22,21 @@ export default function WeatherForecastScreen() {
   const [errorMsg, setErrorMsg] = useState(null);
 
 
-  const loadLocation = async () => { // Funcao para carregar a localizacao do dispositivo
-    let { status } = await Location.requestForegroundPermissionsAsync();
-    if (status !== "granted") {
-      setErrorMsg("Permissão para acesso à localização negada");
-      return;
+  
+  const loadLocation = async () => {
+    try {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setErrorMsg("Permissão para acesso à localização negada");
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      setLocation(location.coords);
+    } catch (error) {
+      console.error('Erro ao obter localização:', error);
+      setErrorMsg("Erro ao obter localização");
     }
-    let location = await Location.getCurrentPositionAsync({});
-    setLocation(location.coords);
   };
 
   const fetchWeatherData = async () => { // Funcao para buscar os dados meteorologicos
@@ -76,9 +82,9 @@ export default function WeatherForecastScreen() {
   const getWeatherIcon = (condition) => {
     switch (condition.toLowerCase()) {
       case "tempo limpo":
-        return ["sunny", "#FFD700"]; 
+        return ["sunny", "#FFD700"];
       case "tempo nublado":
-        return ["cloud", "#90A4AE"]; 
+        return ["cloud", "#90A4AE"];
       case "chuva":
         return ["rainy", "#2196F3"];
       case "chuvas esparsas":
@@ -121,9 +127,9 @@ export default function WeatherForecastScreen() {
         >
           <View style={styles.currentWeatherContainer}>
             <Ionicons
-              style={styles.iconWrapper} 
-              name={getWeatherIcon(weatherData.current.condition)[0]} 
-              size={64} 
+              style={styles.iconWrapper}
+              name={getWeatherIcon(weatherData.current.condition)[0]}
+              size={64}
               color={getWeatherIcon(weatherData.current.condition)[1]}
             />
             <View style={styles.weatherDetails}>

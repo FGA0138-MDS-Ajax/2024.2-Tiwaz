@@ -1,0 +1,49 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Diretórios do sistema
+.DS_Store
+Thumbs.db
+
+# Configurações do ambiente
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Banco de Dados SQLite
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# Arquivos de build
+dist/
+build/
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Cache do Sequelize
+migrations/
+seeders/
+
+# Outros arquivos desnecessários
+coverage/
+.nyc_output/

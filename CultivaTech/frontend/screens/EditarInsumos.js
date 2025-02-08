@@ -12,34 +12,40 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import CheckBox from "react-native-checkbox";
 
-export default function AdicionarInsumo({ navigation }) {
-  const insumosDisponiveis = [
-    { id: 1, nome: "Adubo NPK", medida: "Kg" },
-    { id: 2, nome: "Fertilizante Foliar", medida: "L" },
-    { id: 3, nome: "Calcário", medida: "Kg" },
+export default function EditarInsumo({ navigation, route }) {
+  // Extrai o id do insumo a ser editado
+  const { insumoId } = route.params;
+
+  // Dados simulados dos insumos cadastrados (substitua por sua fonte de dados)
+  const insumosCadastrados = [
+    { id: 1, insumoSelecionado: "Adubo NPK", nome: "Adubo NPK", medida: "Kg", quantidade: "100", valor: "R$ 500,00", dataDeUso: "01/01/2025" },
+    { id: 2, insumoSelecionado: "Fertilizante Foliar", nome: "Fertilizante Foliar", medida: "L", quantidade: "50", valor: "R$ 300,00", dataDeUso: "05/01/2025" },
+    { id: 3, insumoSelecionado: "Calcário", nome: "Calcário", medida: "Kg", quantidade: "200", valor: "R$ 800,00", dataDeUso: "10/01/2025" },
   ];
 
-  const [insumoSelecionado, setInsumoSelecionado] = useState("");
-  const [nome, setNome] = useState("");
-  const [unidadeSelecionada, setUnidadeSelecionada] = useState("");
-  const [quantidade, setQuantidade] = useState("");
-  const [valor, setValor] = useState("");
-  const [dataDeUso, setDataDeUso] = useState("");
+  // Busca o insumo com base no id recebido
+  const insumoToEdit = insumosCadastrados.find((item) => item.id === insumoId);
+
+  // Inicializa os estados com os valores existentes ou com string vazia se não encontrado
+  const [nome, setNome] = useState(insumoToEdit ? insumoToEdit.nome : "");
+  const [unidadeSelecionada, setUnidadeSelecionada] = useState(
+    insumoToEdit ? insumoToEdit.medida : ""
+  );
+  const [quantidade, setQuantidade] = useState(
+    insumoToEdit ? insumoToEdit.quantidade : ""
+  );
+  const [valor, setValor] = useState(insumoToEdit ? insumoToEdit.valor : "");
+  const [dataDeUso, setDataDeUso] = useState(
+    insumoToEdit && insumoToEdit.dataDeUso ? insumoToEdit.dataDeUso : ""
+  );
 
   const isFormValid = () => {
-    return (
-      insumoSelecionado &&
-      nome &&
-      unidadeSelecionada &&
-      quantidade &&
-      valor &&
-      dataDeUso
-    );
+    return nome && unidadeSelecionada && quantidade && valor && dataDeUso;
   };
 
   const handleSave = () => {
     if (isFormValid()) {
-      Alert.alert("Sucesso", "Insumo adicionado com sucesso!");
+      Alert.alert("Sucesso", "Insumo atualizado com sucesso!");
       navigation.goBack();
     } else {
       Alert.alert("Erro", "Preencha todos os campos antes de salvar!");
@@ -50,6 +56,26 @@ export default function AdicionarInsumo({ navigation }) {
     setUnidadeSelecionada(unidade);
   };
 
+  const handleDelete = () => {
+    Alert.alert(
+      "Excluir Insumo",
+      "Tem certeza que deseja excluir este insumo?",
+      [
+        {
+          text: "Cancelar",
+          style: "cancel",
+        },
+        {
+          text: "Excluir",
+          onPress: () => {
+            Alert.alert("Sucesso", "Insumo excluído com sucesso!");
+            navigation.goBack();
+          },
+        },
+      ]
+    );
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.headerContainer}>
@@ -58,19 +84,10 @@ export default function AdicionarInsumo({ navigation }) {
           style={styles.image}
           resizeMode="cover"
         />
-        <Text style={styles.header}>Adicionar Insumo</Text>
+        <Text style={styles.header}>Editar Insumo</Text>
       </View>
 
-      <View style={styles.inputGroup}>
-        <Ionicons name="search" size={24} color="#4CAF50" style={styles.icon} />
-        <TextInput
-          style={styles.input}
-          placeholder="Selecione o Insumo do Estoque"
-          placeholderTextColor="#000"
-          value={insumoSelecionado}
-          onChangeText={setInsumoSelecionado}
-        />
-      </View>
+      {/* Container removido: Input de "Selecione o Insumo do Estoque" */}
 
       <View style={styles.inputGroup}>
         <Ionicons name="leaf" size={24} color="#4CAF50" style={styles.icon} />
@@ -166,7 +183,7 @@ export default function AdicionarInsumo({ navigation }) {
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
-          <Text style={styles.saveButtonText}>Adicionar</Text>
+          <Text style={styles.saveButtonText}>Salvar</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.cancelButton}
@@ -175,6 +192,10 @@ export default function AdicionarInsumo({ navigation }) {
           <Text style={styles.cancelButtonText}>Cancelar</Text>
         </TouchableOpacity>
       </View>
+
+      <TouchableOpacity style={styles.deleteButton} onPress={handleDelete}>
+        <Text style={styles.deleteButtonText}>Excluir Insumo</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 }
@@ -270,5 +291,19 @@ const styles = StyleSheet.create({
   checkboxLabel: {
     fontSize: 16,
     color: "#000",
+  },
+  deleteButton: {
+    backgroundColor: "#FF5252",
+    borderRadius: 10,
+    paddingVertical: 15,
+    alignItems: "center",
+    marginTop: 20,
+    marginHorizontal: 5,
+  },
+  deleteButtonText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
+    alignItems: "center",
   },
 });

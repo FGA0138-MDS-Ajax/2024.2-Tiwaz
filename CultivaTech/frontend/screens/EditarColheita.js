@@ -11,38 +11,110 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-export default function CadastroColheita({ navigation }) {
-  // Estados para os campos
-  const [quality, setQuality] = useState(0);
-  const [harvestDate, setHarvestDate] = useState("");
-  const [measurementType, setMeasurementType] = useState("Área");
-  const [harvestAmount, setHarvestAmount] = useState("");
-  const [harvestCost, setHarvestCost] = useState("");
-  const [saleValue, setSaleValue] = useState("");
+export default function EditarColheita({ navigation, route }) {
+  // Extrai o id da colheita a ser editada
+  const { harvestId } = route.params;
 
+  // Dados simulados das colheitas cadastradas (substitua por sua fonte de dados)
+  const harvests = [
+    {
+      id: 1,
+      quality: 4,
+      harvestDate: "10/01/2025",
+      measurementType: "Área",
+      harvestAmount: "100",
+      harvestCost: "R$ 500,00",
+      saleValue: "R$ 1000,00",
+    },
+    {
+      id: 2,
+      quality: 3,
+      harvestDate: "12/01/2025",
+      measurementType: "Quantidade",
+      harvestAmount: "200",
+      harvestCost: "R$ 800,00",
+      saleValue: "R$ 1500,00",
+    },
+    // Outros registros podem ser adicionados aqui
+  ];
+
+  // Busca a colheita com base no id recebido
+  const harvestToEdit = harvests.find((item) => item.id === harvestId);
+
+  // Inicializa os estados com os valores existentes ou com valores padrão
+  const [quality, setQuality] = useState(
+    harvestToEdit ? harvestToEdit.quality : 0
+  );
+  const [harvestDate, setHarvestDate] = useState(
+    harvestToEdit ? harvestToEdit.harvestDate : ""
+  );
+  const [measurementType, setMeasurementType] = useState(
+    harvestToEdit ? harvestToEdit.measurementType : "Área"
+  );
+  const [harvestAmount, setHarvestAmount] = useState(
+    harvestToEdit ? harvestToEdit.harvestAmount : ""
+  );
+  const [harvestCost, setHarvestCost] = useState(
+    harvestToEdit ? harvestToEdit.harvestCost : ""
+  );
+  const [saleValue, setSaleValue] = useState(
+    harvestToEdit ? harvestToEdit.saleValue : ""
+  );
 
   const getRatingColor = (i) => {
-    switch(i) {
-      case 1: return "#FF0000";  // vermelho
-      case 2: return "#FF7F00";  // laranja
-      case 3: return "#FFFF00";  // amarelo
-      case 4: return "#7FFF00";  // verde claro
-      case 5: return "#00FF00";  // verde
-      default: return "#ccc";
+    switch (i) {
+      case 1:
+        return "#FF0000"; // vermelho
+      case 2:
+        return "#FF7F00"; // laranja
+      case 3:
+        return "#FFFF00"; // amarelo
+      case 4:
+        return "#7FFF00"; // verde claro
+      case 5:
+        return "#00FF00"; // verde
+      default:
+        return "#ccc";
     }
   };
 
   const isFormValid = () => {
-    return quality > 0 && harvestDate && harvestAmount && harvestCost && saleValue;
+    return (
+      quality > 0 &&
+      harvestDate &&
+      harvestAmount &&
+      harvestCost &&
+      saleValue
+    );
   };
 
-  const handleCadastro = () => {
+  const handleSave = () => {
     if (!isFormValid()) {
       Alert.alert("Erro", "Por favor, preencha todos os campos obrigatórios.");
       return;
     }
-    Alert.alert("Sucesso", "Colheita cadastrada com sucesso!");
+    Alert.alert("Sucesso", "Colheita atualizada com sucesso!");
     navigation.goBack();
+  };
+
+  const handleDelete = () => {
+    Alert.alert(
+      "Excluir Colheita",
+      "Tem certeza que deseja excluir esta colheita?",
+      [
+        {
+          text: "Cancelar",
+          style: "cancel",
+        },
+        {
+          text: "Excluir",
+          onPress: () => {
+            Alert.alert("Sucesso", "Colheita excluída com sucesso!");
+            navigation.goBack();
+          },
+        },
+      ]
+    );
   };
 
   return (
@@ -54,7 +126,7 @@ export default function CadastroColheita({ navigation }) {
           style={styles.image}
           resizeMode="cover"
         />
-        <Text style={styles.header}>Cadastro de Colheita</Text>
+        <Text style={styles.header}>Editar Colheita</Text>
       </View>
 
       {/* Seleção de Qualidade */}
@@ -70,7 +142,12 @@ export default function CadastroColheita({ navigation }) {
               ]}
               onPress={() => setQuality(i)}
             >
-              <Text style={[styles.qualityText, quality >= i && styles.qualityTextSelected]}>
+              <Text
+                style={[
+                  styles.qualityText,
+                  quality >= i && styles.qualityTextSelected,
+                ]}
+              >
                 {i}
               </Text>
             </TouchableOpacity>
@@ -80,7 +157,12 @@ export default function CadastroColheita({ navigation }) {
 
       {/* Data da Colheita */}
       <View style={styles.inputGroup}>
-        <Ionicons name="calendar" size={24} color="#4CAF50" style={styles.icon} />
+        <Ionicons
+          name="calendar"
+          size={24}
+          color="#4CAF50"
+          style={styles.icon}
+        />
         <TextInput
           style={styles.input}
           placeholder="Data da Colheita (DD/MM/AAAA)"
@@ -113,14 +195,16 @@ export default function CadastroColheita({ navigation }) {
           <TouchableOpacity
             style={[
               styles.measurementButton,
-              measurementType === "Quantidade" && styles.selectedMeasurementButton,
+              measurementType === "Quantidade" &&
+                styles.selectedMeasurementButton,
             ]}
             onPress={() => setMeasurementType("Quantidade")}
           >
             <Text
               style={[
                 styles.measurementText,
-                measurementType === "Quantidade" && styles.selectedMeasurementText,
+                measurementType === "Quantidade" &&
+                  styles.selectedMeasurementText,
               ]}
             >
               Quantidade
@@ -131,7 +215,12 @@ export default function CadastroColheita({ navigation }) {
 
       {/* Área/Quantidade Colhida */}
       <View style={styles.inputGroup}>
-        <Ionicons name="stats-chart" size={24} color="#4CAF50" style={styles.icon} />
+        <Ionicons
+          name="stats-chart"
+          size={24}
+          color="#4CAF50"
+          style={styles.icon}
+        />
         <TextInput
           style={styles.input}
           placeholder={
@@ -146,7 +235,12 @@ export default function CadastroColheita({ navigation }) {
 
       {/* Custo da Colheita */}
       <View style={styles.inputGroup}>
-        <Ionicons name="cash" size={24} color="#4CAF50" style={styles.icon} />
+        <Ionicons
+          name="cash"
+          size={24}
+          color="#4CAF50"
+          style={styles.icon}
+        />
         <TextInput
           style={styles.input}
           placeholder="Custo da Colheita (R$)"
@@ -159,7 +253,12 @@ export default function CadastroColheita({ navigation }) {
 
       {/* Valor da Venda */}
       <View style={styles.inputGroup}>
-        <Ionicons name="cash" size={24} color="#4CAF50" style={styles.icon} />
+        <Ionicons
+          name="cash"
+          size={24}
+          color="#4CAF50"
+          style={styles.icon}
+        />
         <TextInput
           style={styles.input}
           placeholder="Valor da Venda (R$)"
@@ -171,8 +270,8 @@ export default function CadastroColheita({ navigation }) {
       </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.saveButton} onPress={handleCadastro}>
-          <Text style={styles.saveButtonText}>Cadastrar Colheita</Text>
+        <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
+          <Text style={styles.saveButtonText}>Salvar</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.cancelButton}
@@ -181,6 +280,10 @@ export default function CadastroColheita({ navigation }) {
           <Text style={styles.cancelButtonText}>Cancelar</Text>
         </TouchableOpacity>
       </View>
+
+      <TouchableOpacity style={styles.deleteButton} onPress={handleDelete}>
+        <Text style={styles.deleteButtonText}>Excluir Colheita</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 }
@@ -297,6 +400,19 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   cancelButtonText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  deleteButton: {
+    backgroundColor: "#FF5252",
+    borderRadius: 10,
+    paddingVertical: 15,
+    alignItems: "center",
+    marginTop: 20,
+    marginHorizontal: 5,
+  },
+  deleteButtonText: {
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",

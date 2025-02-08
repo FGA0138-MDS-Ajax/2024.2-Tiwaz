@@ -17,12 +17,12 @@ import { useFocusEffect } from "@react-navigation/native";
 export default function HomeScreen({ navigation }) {
   const [refreshing, setRefreshing] = useState(false);
   const [weatherData, setWeatherData] = useState({
-    condition: "Ensolarado",
-    temperature: 25,
-    rainForecast: 2,
+    condition: "Carregando...",
+    temperature: "--",
+    rainForecast: "--",
   });
 
-  
+
   const [statistics, setStatistics] = useState({
     totalPlantations: 10,
     totalProfit: 15000,
@@ -51,8 +51,8 @@ export default function HomeScreen({ navigation }) {
       status: "Em Crescimento",
     },
   ];
-
-  {/* Função que simula a atualização dos dados da tela. */}
+  
+  {/* Função que simula a atualização dos dados da tela. */ }
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     setTimeout(() => {
@@ -61,7 +61,7 @@ export default function HomeScreen({ navigation }) {
     }, 1500);
   }, []);
 
-  {/* Executa uma lógica sempre que a tela do componente recebe o foco, ou seja, quando o usuário navega para essa tela. */}
+  {/* Executa uma lógica sempre que a tela do componente recebe o foco, ou seja, quando o usuário navega para essa tela. */ }
   useFocusEffect(
     React.useCallback(() => {
       console.log("Tela recebeu foco - atualizando dados...");
@@ -79,7 +79,7 @@ export default function HomeScreen({ navigation }) {
     }
   };
 
-  {/*Formata números em valores monetários no padrão brasileiro (BRL, R$).*/}
+  {/*Formata números em valores monetários no padrão brasileiro (BRL, R$).*/ }
   const formatCurrency = (value) => {
     return value.toLocaleString("pt-BR", {
       style: "currency",
@@ -204,7 +204,8 @@ export default function HomeScreen({ navigation }) {
             ))}
           </View>
 
-          <View style={styles.quickActionsContainer}>
+           {/* Linha 1: Gerenciar Plantações + Baixar PDF */}
+           <View style={styles.doubleActionsContainer}>
             <TouchableOpacity
               style={[styles.actionButton, styles.actionButtonGerenciarPlantacoes]}
               onPress={() => navigation.navigate("VizualizarPlantacoes")}
@@ -214,29 +215,39 @@ export default function HomeScreen({ navigation }) {
               <Text style={styles.actionButtonText}>Gerenciar Plantações</Text>
             </TouchableOpacity>
 
-            <View style={styles.doubleActionsContainer}>
-              <TouchableOpacity
-                style={[styles.actionButton, styles.actionButtonEstoque]}
-                onPress={() => navigation.navigate("VizualizarEstoque")}
-                activeOpacity={0.8}
-              >
-                <Ionicons name="cube" size={28} color="#fff" />
-                <Text style={styles.actionButtonText}>Gerenciar Estoque</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={[styles.actionButton, styles.actionButtonCustos]}
-                onPress={() => navigation.navigate("VizualizarCustos")}
-                activeOpacity={0.8}
-              >
-                <Ionicons name="calculator" size={28} color="#fff" />
-                <Text style={styles.actionButtonText}>Gerenciar Custos</Text>
-              </TouchableOpacity>
-            </View>
+            <TouchableOpacity
+              style={[styles.actionButton, styles.actionButtonRelatorio]}
+              onPress={() => navigation.navigate("GerarRelatorio")}
+              activeOpacity={0.8}
+            >
+              <Ionicons name="document-text" size={28} color="#fff" />
+              <Text style={styles.actionButtonText}>Baixar Relatorio (PDF)</Text>
+            </TouchableOpacity>
           </View>
-        </ScrollView>
-      </ImageBackground>
-    </SafeAreaView>
+
+        {/* Linha 2: Estoque + Custos */}
+          <View style={styles.doubleActionsContainer}>
+            <TouchableOpacity
+              style={[styles.actionButton, styles.actionButtonEstoque]}
+              onPress={() => navigation.navigate("VizualizarEstoque")}
+              activeOpacity={0.8}
+            >
+              <Ionicons name="cube" size={28} color="#fff" />
+              <Text style={styles.actionButtonText}>Gerenciar Estoque</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[styles.actionButton, styles.actionButtonCustos]}
+              onPress={() => navigation.navigate("VizualizarCustos")}
+              activeOpacity={0.8}
+            >
+              <Ionicons name="calculator" size={28} color="#fff" />
+              <Text style={styles.actionButtonText}>Gerenciar Custos</Text>
+            </TouchableOpacity>
+          </View>
+      </ScrollView>
+    </ImageBackground>
+    </SafeAreaView >
   );
 }
 
@@ -383,6 +394,32 @@ const styles = StyleSheet.create({
     color: "#388E3C",
     fontWeight: "600",
   },
+  doubleActionsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 10,
+  },
+  actionButtonGerenciarPlantacoes: {
+    backgroundColor: "#388E3C",
+    width: "99%",
+    flex: 1,
+    marginRight: 10, // Espaço entre os botões
+    paddingVertical: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 15,
+    marginBottom: 10,
+  },
+  actionButtonRelatorio: {
+    backgroundColor: "#D32F2F", // Vermelho
+    flex: 1,
+    marginLeft: 10, // Espaço entre os botões
+    paddingVertical: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 15,
+    marginBottom: 10,
+  },
   plantationItem: {
     marginBottom: 8,
     borderRadius: 10,
@@ -454,27 +491,20 @@ const styles = StyleSheet.create({
   },
   actionButtonText: {
     color: "#fff",
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: "bold",
     textAlign: "center",
     marginTop: 8,
+    flexShrink: 1,
   },
-  actionButtonGerenciarPlantacoes: {
-    backgroundColor: "#388E3C",
-    width: "99%",
-    paddingVertical: 10,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 15,
-    marginBottom: 10,
-  },
+  
   doubleActionsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
   },
   actionButtonEstoque: {
     backgroundColor: "#1976D2",
-    flex: 1, 
+    flex: 1,
     marginRight: 10, // Espaço entre os dois botões menores
     paddingVertical: 10,
     alignItems: "center",
@@ -489,6 +519,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 15,
+    
   },
 });
 

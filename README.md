@@ -91,6 +91,7 @@ npm install react-native-screens@4.4.0
 npm install react-native-vector-icons@10.2.0
 npm install react-native@0.76.6
 npm install react@18.3.1
+npm install expo-notifications@0.20.1
 ```
 - Na pasta do BackEnd:
 ```bash
@@ -103,6 +104,9 @@ npm install nodemon@3.1.9
 npm install sequelize@6.37.5
 npm install sqlite@5.1.1
 npm install sqlite3@5.1.7
+npm install onesignal-node@3.4.0
+npm install pusher@5.2.0
+npm install node-schedule@2.1.1
 ```
 
 ### 💾 Execução
