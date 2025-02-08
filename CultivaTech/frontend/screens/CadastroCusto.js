@@ -13,6 +13,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import DropDownPicker from "react-native-dropdown-picker";
 import {cadastrarCusto, atualizarCusto} from "../services/custos";
+import DateInput from "../components/DateInput"; 
 
 export default function CadastrarCustos({ route, navigation }) {
   const custoExistente = route.params?.custo;
@@ -24,7 +25,7 @@ export default function CadastrarCustos({ route, navigation }) {
       const [, day, month, year] = match;
       return `${day}/${month}/${year}`;
     }
-    return null; // Retorna null se a data for inválida
+    return null;
   };
 
 
@@ -101,16 +102,11 @@ export default function CadastrarCustos({ route, navigation }) {
         />
       </View>
 
-      <View style={styles.inputGroup}>
-        <Ionicons name="calendar-outline" size={24} color="#4CAF50" style={styles.icon} />
-        <TextInput
-          style={styles.input}
-          placeholder="Data do Custo (DD/MM/AAAA)"
-          placeholderTextColor="#000"
-          value={dataDoCusto}
-          onChangeText={setDataDoCusto}
-        />
-      </View>
+      <DateInput
+        placeholder="Data do Custo (DD/MM/AAAA)"
+        value={dataDoCusto}
+        setValue={setDataDoCusto}
+      />
 
       <Text style={styles.subHeader}>Tipo do Custo:</Text>
       <DropDownPicker
