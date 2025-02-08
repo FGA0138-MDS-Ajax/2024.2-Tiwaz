@@ -1,4 +1,4 @@
-const { Plantacao, Insumos, Colheita } = require('../../index');
+const { Plantacao, Insumos, Colheita, CustosAdicionais } = require('../../index');
 const validarDadosPlantacao = require('../middlewares/plantacaoMiddleware');
 
 // Cadastrar Plantação
@@ -22,6 +22,10 @@ const listarPlantacoes = async () => {
       model: Colheita,
       as: 'colheitas',
      },
+     {
+      model: CustosAdicionais,
+      as: 'custosAdicionais',
+     }
   ]
   });
 };

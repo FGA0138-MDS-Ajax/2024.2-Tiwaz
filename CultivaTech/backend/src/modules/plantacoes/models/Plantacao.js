@@ -29,7 +29,7 @@ const Plantacao = sequelize.define('Plantacao', {
     allowNull: true,
   },
   dataPlantio: {
-    type: DataTypes.DATE,
+    type: DataTypes.STRING,
     allowNull: true,
   },
   fechamento: {
@@ -53,7 +53,15 @@ Plantacao.associate = (models) => {
     foreignKey: 'idPlantacao',
     as: 'colheitas', // alias para facilitar o acesso
   });
+
+  Plantacao.hasMany(models.CustosAdicionais, {
+    foreignKey: 'idPlantacao',
+    as: 'custosAdicionais', // alias para facilitar o acesso
+  });
 };
+
+
+
 
 
 
