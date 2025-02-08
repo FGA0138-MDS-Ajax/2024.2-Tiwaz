@@ -1,4 +1,4 @@
-const { Plantacao, Insumos } = require('../../index');
+const { Plantacao, Insumos, Colheita } = require('../../index');
 const validarDadosPlantacao = require('../middlewares/plantacaoMiddleware');
 
 // Cadastrar Plantação
@@ -13,10 +13,16 @@ const cadastrarPlantacao = async (dados) => {
 // Listar Plantações
 const listarPlantacoes = async () => {
   return await Plantacao.findAll({
-    include: [{
+    include: [
+      {
       model: Insumos,
       as: 'insumos',
-    }]
+     },
+     {
+      model: Colheita,
+      as: 'colheitas',
+     },
+  ]
   });
 };
 

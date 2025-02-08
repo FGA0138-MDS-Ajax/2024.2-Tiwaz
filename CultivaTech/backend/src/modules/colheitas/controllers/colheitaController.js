@@ -5,7 +5,7 @@ const colheitaService = require('../services/colheitaService');
 // Cadastrar Colheita
 const cadastrarColheita = async (req, res) => { 
   try { 
-    const { qualidadeColheita, dataColheita, medidaColheita, quantidadeColheita, custoColheita, valorVendaColheita, plantacaoId } = req.body;
+    const { qualidadeColheita, dataColheita, medidaColheita, quantidadeColheita, custoColheita, valorVendaColheita, idPlantacao } = req.body;
 
     // Chama o serviço para cadastrar a colheita
     const novaColheita = await colheitaService.cadastrarColheita({
@@ -15,7 +15,7 @@ const cadastrarColheita = async (req, res) => {
         quantidadeColheita,
         custoColheita,
         valorVendaColheita,
-        plantacaoId,
+        idPlantacao,
     });
 
     res.status(201).json({ // Retorna o status 201 (Created) e a mensagem de sucesso
@@ -43,18 +43,18 @@ const listarColheitas = async (req, res) => {
 // Atualizar uma Colheita
 const editarColheita = async (req, res) => {
   try {
-    const { id } = req.params;
-    const { qualidadeColheita, dataColheita, medidaColheita, quantidadeColheita, custoColheita, valorVendaColheita, plantacaoId } = req.body;
+    const { idColheita } = req.params;
+    const { qualidadeColheita, dataColheita, medidaColheita, quantidadeColheita, custoColheita, valorVendaColheita, idPlantacao } = req.body;
 
     // Chama o serviço para atualizar a plantação
-    const colheitaAtualizada = await colheitaService.editarColheita(id, {
+    const colheitaAtualizada = await colheitaService.editarColheita(idColheita, {
         qualidadeColheita,
         dataColheita,
         medidaColheita,
         quantidadeColheita,
         custoColheita,
         valorVendaColheita,
-        plantacaoId,
+        idPlantacao,
     });
 
     if (!colheitaAtualizada) {

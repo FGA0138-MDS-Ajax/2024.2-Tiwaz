@@ -48,6 +48,11 @@ Plantacao.associate = (models) => {
     foreignKey: 'idPlantacao',
     as: 'insumos', // alias para facilitar o acesso
   });
+
+  Plantacao.hasMany(models.Colheita, {
+    foreignKey: 'idPlantacao',
+    as: 'colheitas', // alias para facilitar o acesso
+  });
 };
 
 

@@ -1,12 +1,11 @@
 const validarDadosColheita = (dadosColheita) => {
-  const { 
+  const {  
     qualidadeColheita, 
     dataColheita, 
     medidaColheita, 
     quantidadeColheita, 
     custoColheita, 
-    valorVendaColheita, 
-    plantacaoId 
+    idPlantacao 
   } = dadosColheita;
 
   // Verifica campos obrigatórios
@@ -16,14 +15,13 @@ const validarDadosColheita = (dadosColheita) => {
     !medidaColheita || 
     !quantidadeColheita || 
     !custoColheita || 
-    !valorVendaColheita || 
-    !plantacaoId
+    !idPlantacao
   ) {
     return { valido: false, mensagem: "Todos os campos são obrigatórios!" };
   }
 
   // Valida tipos (ex: quantidade deve ser número)
-  if (isNaN(quantidadeColheita) || isNaN(custoColheita) || isNaN(valorVendaColheita)) {
+  if (isNaN(quantidadeColheita) || isNaN(custoColheita)) {
     return { valido: false, mensagem: "Campos numéricos inválidos!" };
   }
 

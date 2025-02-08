@@ -1,18 +1,20 @@
 // models/index.js
 const Plantacao = require('./plantacoes/models/Plantacao');
 const Insumos = require('./insumos/models/insumoModel');
+const Colheita = require('./colheitas/models/colheitaModel');
 
 // Monta um objeto com os modelos
 const models = {
   Plantacao,
   Insumos,
+  Colheita,
 };
 
-// Executa as associações, se os métodos existirem
 Object.keys(models).forEach(modelName => {
-  if (models[modelName].associate) {
+  if (typeof models[modelName].associate === 'function') {
     models[modelName].associate(models);
   }
 });
+
 
 module.exports = models;
