@@ -1,17 +1,31 @@
-const Plantacao = require('../models/Plantacao');
+const { Plantacao, Insumos } = require('../../index');
+const validarDadosPlantacao = require('../middlewares/plantacaoMiddleware');
 
 // Cadastrar Plantação
 const cadastrarPlantacao = async (dados) => {
+  const validacao = validarDadosPlantacao(dados);
+  if (!validacao.valido) {
+    throw new Error(validacao.mensagem);
+  }
   return await Plantacao.create(dados);
 };
 
 // Listar Plantações
 const listarPlantacoes = async () => {
-  return await Plantacao.findAll();
+  return await Plantacao.findAll({
+    include: [{
+      model: Insumos,
+      as: 'insumos',
+    }]
+  });
 };
 
 // Atualizar Plantação
 const atualizarPlantacao = async (id, dados) => {
+  const validacao = validarDadosPlantacao(dados);
+  if (!validacao.valido) {
+    throw new Error(validacao.mensagem);
+  }
   const plantacao = await Plantacao.findByPk(id);
 
   if (!plantacao) return null;
@@ -29,6 +43,8 @@ const excluirPlantacao = async (id) => {
   await plantacao.destroy();
   return true;
 };
+
+
 
 module.exports = {
   cadastrarPlantacao,

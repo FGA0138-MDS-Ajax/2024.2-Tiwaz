@@ -12,6 +12,7 @@ const previsaoRoutes = require('./src/modules/previsaoDoTempo/previsaoRoutes.js'
 const estoqueRoutes = require('./src/modules/estoque/routes/estoqueRoutes.js');
 const notificationRoutes = require('./src/modules/notifications/routes/notificationRoutes');
 const relatoriosRoutes = require('./src/modules/relatorios/relatoriosRoutes/relatoriosRoutes.js');
+const insumoRoutes = require('./src/modules/insumos/routes/insumoRoutes.js');
 
 const sequelize = require('./src/config/database.js');
 
@@ -30,6 +31,10 @@ app.use('/api/weather', previsaoRoutes);
 app.use('/api/estoque', estoqueRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/relatorios', relatoriosRoutes);
+app.use('/api/insumos', insumoRoutes);
+
+
+
 // Inicializar o banco de dados
 sequelize.sync({ force: false }) // Use force: true apenas para recriar tabelas
   .then(() => {

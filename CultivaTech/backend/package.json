@@ -15,7 +15,10 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "node-schedule": "^2.1.1",
+    "onesignal-node": "^3.4.0",
     "pdfkit": "^0.16.0",
+    "pusher": "^5.2.0",
     "sequelize": "^6.37.5",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7"

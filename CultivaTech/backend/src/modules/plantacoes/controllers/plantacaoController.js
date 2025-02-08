@@ -3,21 +3,17 @@ const plantacaoService = require('../services/plantacaoService');
 // Cadastrar Plantação
 const cadastrarPlantacao = async (req, res) => {
   try {
-    const { nome, tipo, areaPlantada, quantidadePlantada, dataPlantio, custoInicial } = req.body;
-
-    // Validação dos campos obrigatórios
-    if (!nome || !tipo || (!areaPlantada && !quantidadePlantada) || !dataPlantio || !custoInicial) {
-      return res.status(400).json({ error: 'Todos os campos obrigatórios devem ser preenchidos!' });
-    }
-
+    const { idPlantacao, nome, tipoCultura, unidadeMedida, qtdPlantada, custoInicial, dataPlantio, fechamento } = req.body;
     // Chama o serviço para cadastrar a plantação
     const novaPlantacao = await plantacaoService.cadastrarPlantacao({
+      idPlantacao,
       nome,
-      tipo,
-      areaPlantada: areaPlantada || null,
-      quantidadePlantada: quantidadePlantada || null,
-      dataPlantio,
+      tipoCultura,
+      unidadeMedida,
+      qtdPlantada,
       custoInicial,
+      dataPlantio,
+      fechamento,
     });
 
     res.status(201).json({
@@ -45,17 +41,18 @@ const listarPlantacoes = async (req, res) => {
 // Atualizar Plantação
 const atualizarPlantacao = async (req, res) => {
   try {
-    const { id } = req.params;
-    const { nome, tipo, areaPlantada, quantidadePlantada, dataPlantio, custoInicial } = req.body;
+    const { idPlantacao } = req.params;
+    const { nome, tipoCultura, unidadeMedida, qtdPlantada, custoInicial, dataPlantio, fechamento } = req.body;
 
     // Chama o serviço para atualizar a plantação
-    const plantacaoAtualizada = await plantacaoService.atualizarPlantacao(id, {
+    const plantacaoAtualizada = await plantacaoService.atualizarPlantacao(idPlantacao, {
       nome,
-      tipo,
-      areaPlantada: areaPlantada || null,
-      quantidadePlantada: quantidadePlantada || null,
-      dataPlantio,
+      tipoCultura,
+      unidadeMedida,
+      qtdPlantada,
       custoInicial,
+      dataPlantio, 
+      fechamento,
     });
 
     if (!plantacaoAtualizada) {
