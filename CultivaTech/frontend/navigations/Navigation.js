@@ -1,8 +1,7 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
 import HomeScreen from '../screens/Inicial'; 
 import CadastroPlantacao from '../screens/CadastroPlantacao'; 
 import CadastroEstoque from '../screens/CadastroEstoque';
@@ -22,8 +21,8 @@ import EditarPlantacao from '../screens/EditarPlantacao';
 import EditarCusto from '../screens/EditarCusto';
 
 const Stack = createStackNavigator();
-
 const Navigation = () => {
+  
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="HomeScreen">
@@ -37,16 +36,16 @@ const Navigation = () => {
         <Stack.Screen 
           name="PrevisaoTempo" 
           component={PrevisaoTempo} 
-          options={{
+          options={({ navigation }) => ({
             title: "Previsão do Tempo",
             headerStyle: { backgroundColor: "#E3F2FD" }, // Cor de fundo do cabeçalho
             headerTintColor: "#4FC3F7", // Cor do texto e ícones
-            headerLeft: ({ onPress }) => (
-              <TouchableOpacity onPress={onPress} style={{ padding: 10 }}>
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")} style={{ padding: 10 }}>
                 <Ionicons name="arrow-back" size={24} color="#4FC3F7" />
               </TouchableOpacity>
             ),
-          }} 
+          })} 
         />
         {/* TELA EDITAR PLANTACAO*/}
         <Stack.Screen 
@@ -82,16 +81,16 @@ const Navigation = () => {
         <Stack.Screen 
           name="VizualizarPlantacaoIndividual" 
           component={VizualizarPlantacaoIndividual} 
-          options={{
+          options={({ navigation }) => ({
             title: "Detalhes da Plantacao",
             headerStyle: { backgroundColor: "#E0E0E0" }, // Cor de fundo do cabeçalho
             headerTintColor: "#000", // Cor do texto e ícones
-            headerLeft: ({ onPress }) => (
-              <TouchableOpacity onPress={onPress} style={{ padding: 10 }}>
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate("VizualizarPlantacoes")} style={{ padding: 10 }}>
                 <Ionicons name="arrow-back" size={24} color="#000" />
               </TouchableOpacity>
             ),
-          }} 
+          })} 
         />
         {/* TELA EDITAR INSUMOS*/}
         <Stack.Screen
@@ -172,12 +171,11 @@ const Navigation = () => {
             title: "Gerenciar Custos",
             headerStyle: { backgroundColor: "#E0E0E0" }, // Cor de fundo do cabeçalho
             headerTintColor: "#000", // Cor do texto e ícones
-            headerRight: () => (
+            headerLeft: () => (
               <TouchableOpacity 
                 onPress={() => navigation.navigate("HomeScreen")} 
-                style={{ 
-                  padding: 10 
-                }}>
+                style={{ padding: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="#000" />
               </TouchableOpacity>
             ),
           })} />
@@ -189,9 +187,10 @@ const Navigation = () => {
             title: "Cadastrar Novo Custo",
             headerStyle: { backgroundColor: "#E0E0E0" },
             headerTintColor: "#000",
-            headerRight: () => (
-              <TouchableOpacity onPress={() => navigation.navigate("VizualizarCustos")} 
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.goBack()} 
               style={{ padding: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="#000" />
               </TouchableOpacity>
             ),
           })} 
@@ -215,31 +214,31 @@ const Navigation = () => {
         <Stack.Screen 
           name="VizualizarPlantacoes" 
           component={VizualizarPlantacoes} 
-          options={{
+          options={({ navigation }) => ({
             title: "Gerenciamento de Plantio",
             headerStyle: { backgroundColor: "#E0E0E0" }, // Cor de fundo do cabeçalho
             headerTintColor: "#000", // Cor do texto e ícones
-            headerLeft: ({ onPress }) => (
-              <TouchableOpacity onPress={onPress} style={{ padding: 10 }}>
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")} style={{ padding: 10 }}>
                 <Ionicons name="arrow-back" size={24} color="#000" />
               </TouchableOpacity>
             ),
-          }} 
+          })} 
         />
         {/* TELA VIZUALIZAR ESTOQUE*/}
         <Stack.Screen 
           name="VizualizarEstoque" 
           component={VizualizarEstoque} 
-          options={{
+          options={ ({ navigation }) => ({
             title: "Estoque",
             headerStyle: { backgroundColor: "#E0E0E0" }, // Cor de fundo do cabeçalho
             headerTintColor: "#000", // Cor do texto e ícones
-            headerLeft: ({ onPress }) => (
-              <TouchableOpacity onPress={onPress} style={{ padding: 10 }}>
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')} style={{ padding: 10 }}>
                 <Ionicons name="arrow-back" size={24} color="#000" />
               </TouchableOpacity>
             ),
-          }} 
+          })} 
         />
         {/* TELA Cadastar Colheita*/}
         <Stack.Screen 
