@@ -1,40 +1,50 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, Alert, Image } from "react-native";
-import CheckBox from 'react-native-checkbox';
+import { 
+  View, Text, StyleSheet, TextInput, TouchableOpacity, 
+  ScrollView, Alert, Image 
+} from "react-native";
 import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
+import { cadastrarPlantacao } from "../services/plantacaoService"; 
 
 export default function CadastroPlantacao({ navigation }) {
   const [nome, setNome] = useState("");
   const [tipo, setTipo] = useState("");
   const [isArea, setIsArea] = useState(true);
-  const [isQuantidade, setIsQuantidade] = useState(false);
   const [areaPlantada, setAreaPlantada] = useState("");
   const [dataPlantio, setDataPlantio] = useState("");
   const [custoInicial, setCustoInicial] = useState("");
 
-  const handleAreaChange = () => {
-    setIsArea(true);
-    setIsQuantidade(false);
-  };
-
-  const handleQuantidadeChange = () => {
-    setIsArea(false);
-    setIsQuantidade(true);
-  };
-
-  const isFormValid = () => {
-    return nome && tipo && areaPlantada && dataPlantio && custoInicial;
-  };
-
-  const handleSave = () => {
-    if (isFormValid()) {
-      Alert.alert("Sucesso", "Plantio cadastrado com sucesso!");
-      navigation.goBack();
-    } else {
-      Alert.alert("Erro", "Preencha todos os campos antes de salvar!");
+  const handleCadastro = async () => {
+    if (!nome || !tipo || !areaPlantada || !dataPlantio || !custoInicial) {
+      Alert.alert("Erro", "Preencha todos os campos obrigatórios.");
+      return;
+    }
+  
+    try {
+      const response = await cadastrarPlantacao({
+        nome,
+        tipo,
+        areaPlantada: isArea ? areaPlantada : null,
+        quantidadePlantada: !isArea ? areaPlantada : null,
+        dataPlantio,
+        custoInicial,
+      });
+  
+      console.log("Resposta da API:", response);
+  
+      if (response.success && response.data?.id) {  // Verifica corretamente o ID retornado
+        Alert.alert("Sucesso", "Plantação cadastrada com sucesso!");
+        navigation.goBack();
+      } else {
+        console.warn("⚠️ Erro inesperado no cadastro:", response);
+        Alert.alert("Erro", response.error || "Erro ao cadastrar a plantação.");
+      }
+    } catch (error) {
+      console.error("Erro no cadastro:", error);
+      Alert.alert("Erro", "Não foi possível cadastrar a plantação.");
     }
   };
-
+  
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Image
@@ -68,24 +78,21 @@ export default function CadastroPlantacao({ navigation }) {
       <View style={styles.checkboxGroup}>
         <Text style={styles.checkboxLabel}>Medida:</Text>
         <View style={styles.checkboxRow}>
-          <View style={styles.checkboxItem}>
-            <CheckBox
-              label="Área"
-              checked={isArea}
-              onChange={handleAreaChange}
-              containerStyle={styles.checkboxContainer}
-              labelStyle={styles.checkboxText}
-            />
-          </View>
-          <View style={styles.checkboxItem}>
-            <CheckBox
-              label="Quantidade"
-              checked={isQuantidade}
-              onChange={handleQuantidadeChange}
-              containerStyle={styles.checkboxContainer}
-              labelStyle={styles.checkboxText}
-            />
-          </View>
+          <TouchableOpacity 
+            style={[styles.checkboxItem, isArea && styles.checkboxItemSelected]} 
+            onPress={() => setIsArea(true)}
+          >
+            <Ionicons name={isArea ? "checkbox" : "square-outline"} size={24} color="#4CAF50" />
+            <Text style={styles.checkboxText}>Área (hectares)</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={[styles.checkboxItem, !isArea && styles.checkboxItemSelected]} 
+            onPress={() => setIsArea(false)}
+          >
+            <Ionicons name={!isArea ? "checkbox" : "square-outline"} size={24} color="#4CAF50" />
+            <Text style={styles.checkboxText}>Quantidade</Text>
+          </TouchableOpacity>
         </View>
       </View>
 
@@ -93,7 +100,7 @@ export default function CadastroPlantacao({ navigation }) {
         <Ionicons name="expand" size={24} color="#4CAF50" style={styles.icon} />
         <TextInput
           style={styles.input}
-          placeholder={isQuantidade ? "Quantidade Plantada" : "Área Plantada (hectares)"}
+          placeholder={isArea ? "Área Plantada (hectares)" : "Quantidade Plantada"}
           placeholderTextColor="#000"
           value={areaPlantada}
           onChangeText={setAreaPlantada}
@@ -109,7 +116,6 @@ export default function CadastroPlantacao({ navigation }) {
           placeholderTextColor="#000"
           value={dataPlantio}
           onChangeText={setDataPlantio}
-          keyboardType="numeric"
         />
       </View>
 
@@ -126,7 +132,7 @@ export default function CadastroPlantacao({ navigation }) {
       </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
+        <TouchableOpacity style={styles.saveButton} onPress={handleCadastro}>
           <Text style={styles.saveButtonText}>Salvar</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -145,13 +151,6 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     padding: 20,
     backgroundColor: "#FFFFFF",
-  },
-  header: {
-    fontSize: 26,
-    fontWeight: "bold",
-    color: "#4CAF50",
-    marginBottom: 20,
-    textAlign: "center",
   },
   image: {
     width: "100%",
@@ -187,19 +186,20 @@ const styles = StyleSheet.create({
   },
   checkboxRow: {
     flexDirection: "row",
-    alignItems: "center",
+    justifyContent: "space-around",
   },
   checkboxItem: {
-    flex: 1,
     flexDirection: "row",
     alignItems: "center",
+    padding: 10,
   },
-  checkboxContainer: {
-    borderWidth: 0,
-    backgroundColor: "transparent",
+  checkboxItemSelected: {
+    backgroundColor: "#E0F2F1",
+    borderRadius: 10,
   },
   checkboxText: {
     fontSize: 16,
+    marginLeft: 10,
     color: "#000",
   },
   buttonContainer: {

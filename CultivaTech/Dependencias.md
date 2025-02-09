@@ -35,6 +35,9 @@ npm install body-parser@1.20.3
 npm install cors@2.8.5
 npm install dotenv@16.4.7
 npm install express@4.21.2
+npm install onesignal-node@3.4.0
+npm install node-schedule@2.1.1
+npm install pusher@5.2.0
 npm install nodemon@3.1.9
 npm install sequelize@6.37.5
 npm install sqlite@5.1.1

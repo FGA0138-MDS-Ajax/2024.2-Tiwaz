@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -13,6 +13,8 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useFocusEffect } from "@react-navigation/native";
+import { listarPlantacoes } from "../services/plantacaoService";
+
 
 export default function HomeScreen({ navigation }) {
   const [refreshing, setRefreshing] = useState(false);
@@ -22,52 +24,63 @@ export default function HomeScreen({ navigation }) {
     rainForecast: "--",
   });
 
-
   const [statistics, setStatistics] = useState({
-    totalPlantations: 10,
-    totalProfit: 15000,
+    totalPlantations: 0,
+    totalProfit: 0,
   });
-
-  const recentPlantations = [
-    {
-      id: 1,
-      name: "Milho Safrinha",
-      type: "Grão",
-      measure: "2000 hectares",
-      status: "Em Crescimento",
-    },
-    {
-      id: 2,
-      name: "Tomate Cereja",
-      type: "Hortaliça",
-      measure: "5 hectares",
-      status: "Colhido",
-    },
-    {
-      id: 3,
-      name: "Soja Convencional",
-      type: "Grão",
-      measure: "15 hectares",
-      status: "Em Crescimento",
-    },
-  ];
   
-  {/* Função que simula a atualização dos dados da tela. */ }
-  const onRefresh = React.useCallback(() => {
-    setRefreshing(true);
-    setTimeout(() => {
-      setRefreshing(false);
-      Alert.alert("Atualizado", "Dados atualizados com sucesso!");
-    }, 1500);
-  }, []);
 
-  {/* Executa uma lógica sempre que a tela do componente recebe o foco, ou seja, quando o usuário navega para essa tela. */ }
+// Função para buscar plantações do backend
+const fetchPlantations = async () => {
+  setRefreshing(true); // Mostra que a tela está atualizando
+  try {
+    const response = await listarPlantacoes();
+    console.log("📌 Dados recebidos do backend:", response);
+
+    if (response && response.success && Array.isArray(response.data)) {
+      console.log("✅ Atualizando estado das plantações...");
+      setRecentPlantations(response.data); // Atualiza corretamente o estado
+      setStatistics({
+        totalPlantations: response.data.length,
+        totalProfit: response.data.reduce((acc, plant) => acc - (plant.custoInicial || 0), 0),
+      });
+    } else {
+      console.error("⚠️ Resposta inesperada do backend:", response);
+      setRecentPlantations([]);
+    }
+  } catch (error) {
+    console.error("❌ Erro ao listar plantações:", error);
+    Alert.alert("Erro", "Não foi possível carregar as plantações.");
+    setRecentPlantations([]);
+  } finally {
+    setRefreshing(false);
+  }
+};
+
+
+  
+  const [recentPlantations, setRecentPlantations] = useState([]);
+  
+  {/* Função que simula a atualização dos dados da tela. */}
+  const onRefresh = React.useCallback(async () => {
+    setRefreshing(true);
+    await fetchPlantations(); // Chama a API do backend ao atualizar
+    setRefreshing(false);
+}, []);
+
+useEffect(() => {
+  console.log("🧐 Estado atualizado - Plantações:", recentPlantations);
+}, [recentPlantations]);
+
+  {/* Executa uma lógica sempre que a tela do componente recebe o foco, ou seja, quando o usuário navega para essa tela. */}
+
   useFocusEffect(
     React.useCallback(() => {
-      console.log("Tela recebeu foco - atualizando dados...");
+      fetchPlantations(); // Chama a função corretamente
     }, [])
   );
 
+  
   const getStatusColor = (status) => {
     switch (status) {
       case "Em Crescimento":
@@ -81,11 +94,13 @@ export default function HomeScreen({ navigation }) {
 
   {/*Formata números em valores monetários no padrão brasileiro (BRL, R$).*/ }
   const formatCurrency = (value) => {
-    return value.toLocaleString("pt-BR", {
+    const formattedValue = Math.abs(value).toLocaleString("pt-BR", {
       style: "currency",
       currency: "BRL",
     });
+    return value < 0 ? `-${formattedValue}` : formattedValue;
   };
+
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -164,44 +179,28 @@ export default function HomeScreen({ navigation }) {
                 <Text style={styles.seeAllText}>Ver Todas</Text>
               </TouchableOpacity>
             </View>
+                  
+            {recentPlantations.length > 0 ? (
+    recentPlantations.map((plantation) => (
+        <View key={plantation.id} style={[styles.plantationItem, { padding: 12 }]}>
+            <View style={styles.plantationInfo}>
+                <Text style={styles.plantationName}>{plantation.nome}</Text>
+                <Text style={styles.plantationDetails}>
+                    {plantation.tipo} • {plantation.areaPlantada ? `${plantation.areaPlantada} hectares` : `${plantation.quantidadePlantada} unidades`}
+                </Text>
+                <Text style={[styles.statusText, { color: getStatusColor(plantation.status) }]}>
+                    {plantation.status}
+                </Text>
+            </View>
+        </View>
+    ))
+) : (
+    <Text style={{ textAlign: "center", color: "#888", marginTop: 10 }}>
+        Nenhuma plantação encontrada.
+    </Text>
+)}
 
-            {recentPlantations.map((plantation) => (
-              <View
-                key={plantation.id}
-                style={[styles.plantationItem, { padding: 12 }]}
-                activeOpacity={0.7}
-              >
-                <View style={styles.plantationInfo}>
-                  <View style={styles.plantationHeader}>
-                    <Ionicons
-                      name="leaf"
-                      size={24}
-                      color="#388E3C"
-                      style={styles.plantationIcon}
-                    />
-                    <View style={styles.plantationTitles}>
-                      <Text style={styles.plantationName}>
-                        {plantation.name}
-                      </Text>
-                      <Text style={styles.plantationDetails}>
-                        {plantation.type} • {plantation.measure}
-                      </Text>
-                    </View>
-                  </View>
 
-                  <View style={styles.plantationStatus}>
-                    <Text
-                      style={[
-                        styles.statusText,
-                        { color: getStatusColor(plantation.status) },
-                      ]}
-                    >
-                      {plantation.status}
-                    </Text>
-                  </View>
-                </View>
-              </View>
-            ))}
           </View>
 
            {/* Linha 1: Gerenciar Plantações + Baixar PDF */}
@@ -522,4 +521,3 @@ const styles = StyleSheet.create({
     
   },
 });
-

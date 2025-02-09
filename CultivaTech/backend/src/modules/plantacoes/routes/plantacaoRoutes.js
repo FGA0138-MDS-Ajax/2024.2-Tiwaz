@@ -8,4 +8,5 @@ router.get('/', plantacaoController.listarPlantacoes); // READ (ALL)
 router.put('/:id', plantacaoController.atualizarPlantacao); // UPDATE
 router.delete('/:id', plantacaoController.excluirPlantacao); // DELETE
 
+
 module.exports = router;
