@@ -33,13 +33,13 @@ const Plantacao = sequelize.define('Plantacao', {
     allowNull: true,
   },
   fechamento: {
-    type: DataTypes.BOOLEAN,
+    type: DataTypes.STRING,
     allowNull: true,
   },
 },
 {
   tableName: 'Plantacao',  // Nome da tabela no banco de dados existente
-  timestamps: false     // Definir como false se sua tabela não possui campos de data (createdAt, updatedAt)
+  timestamps: true     // Definir como false se sua tabela não possui campos de data (createdAt, updatedAt)
 }
 );
 

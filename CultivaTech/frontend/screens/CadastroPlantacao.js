@@ -2,36 +2,45 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView, Alert, Image } from "react-native";
 import CheckBox from 'react-native-checkbox';
 import { Ionicons, FontAwesome5 } from "@expo/vector-icons";
+import { cadastrarPlantacao } from "../services/plantacoes";
 
 export default function CadastroPlantacao({ navigation }) {
   const [nome, setNome] = useState("");
-  const [tipo, setTipo] = useState("");
-  const [isArea, setIsArea] = useState(true);
-  const [isQuantidade, setIsQuantidade] = useState(false);
-  const [areaPlantada, setAreaPlantada] = useState("");
+  const [tipoCultura, setTipoCultura] = useState("");
+  const [unidadeMedida, setUnidadeMedida] = useState(true);
+  const [qtdPlantada, setQtdPlantada] = useState("");
   const [dataPlantio, setDataPlantio] = useState("");
   const [custoInicial, setCustoInicial] = useState("");
+  const [fechamento, setFechamento] = useState("Aberto");
 
-  const handleAreaChange = () => {
-    setIsArea(true);
-    setIsQuantidade(false);
-  };
-
-  const handleQuantidadeChange = () => {
-    setIsArea(false);
-    setIsQuantidade(true);
-  };
 
   const isFormValid = () => {
-    return nome && tipo && areaPlantada && dataPlantio && custoInicial;
+    return nome && tipoCultura && qtdPlantada && custoInicial && dataPlantio;
   };
 
-  const handleSave = () => {
-    if (isFormValid()) {
-      Alert.alert("Sucesso", "Plantio cadastrado com sucesso!");
-      navigation.goBack();
-    } else {
-      Alert.alert("Erro", "Preencha todos os campos antes de salvar!");
+  const handleCadastro = async () => {
+    if (!isFormValid()) {
+      Alert.alert("Erro", "Preencha todos os campos obrigatórios.");
+      return;
+    }
+
+    try {
+      const response = await cadastrarPlantacao({
+        nome,
+        tipoCultura,
+        unidadeMedida,
+        qtdPlantada,
+        dataPlantio,
+        custoInicial,
+        fechamento,
+      });
+
+      console.log("Resposta da API:", response);
+      Alert.alert("Sucesso", "Plantação cadastrada com sucesso.");
+      navigation.navigate("VizualizarPlantacoes", { reload: true });
+    } catch (error) {
+      console.error("Erro no cadastro:", error);
+      Alert.alert("Erro", "Não foi possível cadastrar a plantação.");
     }
   };
 
@@ -60,32 +69,29 @@ export default function CadastroPlantacao({ navigation }) {
           style={styles.input}
           placeholder="Tipo de Cultura (ex: Milho, Soja)"
           placeholderTextColor="#000"
-          value={tipo}
-          onChangeText={setTipo}
+          value={tipoCultura}
+          onChangeText={setTipoCultura}
         />
       </View>
 
       <View style={styles.checkboxGroup}>
         <Text style={styles.checkboxLabel}>Medida:</Text>
         <View style={styles.checkboxRow}>
-          <View style={styles.checkboxItem}>
-            <CheckBox
-              label="Área"
-              checked={isArea}
-              onChange={handleAreaChange}
-              containerStyle={styles.checkboxContainer}
-              labelStyle={styles.checkboxText}
-            />
-          </View>
-          <View style={styles.checkboxItem}>
-            <CheckBox
-              label="Quantidade"
-              checked={isQuantidade}
-              onChange={handleQuantidadeChange}
-              containerStyle={styles.checkboxContainer}
-              labelStyle={styles.checkboxText}
-            />
-          </View>
+        <TouchableOpacity 
+            style={[styles.checkboxItem, unidadeMedida && styles.checkboxItemSelected]} 
+            onPress={() => setUnidadeMedida(true)}
+          >
+            <Ionicons name={unidadeMedida ? "checkbox" : "square-outline"} size={24} color="#4CAF50" />
+            <Text style={styles.checkboxText}>Área (hectares)</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={[styles.checkboxItem, !unidadeMedida && styles.checkboxItemSelected]} 
+            onPress={() => setUnidadeMedida(false)}
+          >
+            <Ionicons name={!unidadeMedida ? "checkbox" : "square-outline"} size={24} color="#4CAF50" />
+            <Text style={styles.checkboxText}>Quantidade</Text>
+          </TouchableOpacity>
         </View>
       </View>
 
@@ -93,10 +99,10 @@ export default function CadastroPlantacao({ navigation }) {
         <Ionicons name="expand" size={24} color="#4CAF50" style={styles.icon} />
         <TextInput
           style={styles.input}
-          placeholder={isQuantidade ? "Quantidade Plantada" : "Área Plantada (hectares)"}
+          placeholder={ unidadeMedida ? "Área Plantada (hectares)" : "Quantidade Plantada" }
           placeholderTextColor="#000"
-          value={areaPlantada}
-          onChangeText={setAreaPlantada}
+          value={qtdPlantada}
+          onChangeText={setQtdPlantada}
           keyboardType="numeric"
         />
       </View>
@@ -126,7 +132,7 @@ export default function CadastroPlantacao({ navigation }) {
       </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
+        <TouchableOpacity style={styles.saveButton} onPress={handleCadastro}>
           <Text style={styles.saveButtonText}>Salvar</Text>
         </TouchableOpacity>
         <TouchableOpacity

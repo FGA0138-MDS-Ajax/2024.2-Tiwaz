@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect  } from "react";
 import {
   View,
   Text,
@@ -7,39 +7,33 @@ import {
   TouchableOpacity,
   SafeAreaView,
   Alert,
+  ActivityIndicator,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { listarPlantacoes, excluirPlantacao } from "../services/plantacoes";
 
 export default function GerenciarPlantacoes({ navigation }) {
-  const [plantacoes, setPlantacoes] = useState([
-    {
-      id: 1,
-      name: "Milho Safrinha",
-      type: "Grão",
-      plantingDate: "10/01/2025",
-      measure: "2 hectares",
-      cost: "R$ 10.000,00",
-      status: "Ativa",
-    },
-    {
-      id: 2,
-      name: "Tomate Cereja",
-      type: "Hortaliça",
-      plantingDate: "05/01/2025",
-      measure: "5 hectares",
-      cost: "R$ 20.000,00",
-      status: "Ativa",
-    },
-    {
-      id: 3,
-      name: "Soja Convencional",
-      type: "Grão",
-      plantingDate: "08/01/2025",
-      measure: "15 hectares",
-      cost: "R$ 50.000,00",
-      status: "Ativa",
-    },
-  ]);
+  const [plantacoes, setPlantacoes] = useState([]); // Estado inicial como array vazio
+  const [loading, setLoading] = useState(false); // Estado para indicar carregamento
+
+   // Função para buscar plantações do backend
+   const fetchPlantacoes = async () => {
+    setLoading(true);
+    try {
+      const response = await listarPlantacoes();
+      setPlantacoes(response);
+      console.log("Dados recebidos do backend:", response);
+    } catch (error) {
+      console.error("Erro ao listar plantações:", error);
+      Alert.alert("Erro", "Não foi possível carregar as plantações.");
+      setPlantacoes([]); // Evita undefined
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
+    fetchPlantacoes();
+  }, []);
 
   // Navega para a tela de visualização individual da plantação
   const navigateToVisualizacao = (plantacao) => {
@@ -51,7 +45,7 @@ export default function GerenciarPlantacoes({ navigation }) {
 
   // Função para editar: navega para uma tela de edição
   const handleEditar = (id) => {
-    const plantacao = plantacoes.find((p) => p.id === id);
+    const plantacao = plantacoes.find((p) => p.idPlantacao === id);
     if (plantacao) {
       navigation.navigate("EditarPlantacao", { plantacao });
     }
@@ -69,7 +63,7 @@ export default function GerenciarPlantacoes({ navigation }) {
           onPress: () => {
             setPlantacoes((prev) =>
               prev.map((p) =>
-                p.id === id ? { ...p, status: "Fechado" } : p
+                p.idPlantacao === id ? { ...p, fechamento: "Fechado" } : p
               )
             );
             Alert.alert("Sucesso", "Plantação fechada com sucesso!");
@@ -80,20 +74,27 @@ export default function GerenciarPlantacoes({ navigation }) {
     );
   };
 
-  // Função para excluir: remove a plantação do estado após confirmação
-  const handleExcluir = (id) => {
+  const handleExcluir = async (id) => {
     Alert.alert(
-      "Excluir Plantação",
-      "Tem certeza que deseja excluir esta plantação?",
+      "Confirmação",
+      "Deseja realmente excluir esta plantação?",
       [
         { text: "Cancelar", style: "cancel" },
         {
           text: "Excluir",
-          onPress: () =>
-            setPlantacoes((prev) => prev.filter((p) => p.id !== id)),
+          onPress: async () => {
+            try {
+              await excluirPlantacao(id);
+              Alert.alert("Sucesso", "Plantação excluída com sucesso!");
+              fetchPlantacoes(); // Atualiza a lista após exclusão
+            } catch (error) {
+              console.error("Erro ao excluir plantação:", error);
+              Alert.alert("Erro", "Não foi possível excluir a plantação.");
+            }
+          },
         },
       ],
-      { cancelable: false }
+      { cancelable: true }
     );
   };
 
@@ -105,12 +106,12 @@ export default function GerenciarPlantacoes({ navigation }) {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.container}>
-        {plantacoes.map((plantacao) => (
-          <View key={plantacao.id} style={styles.plantacaoContainer}>
+        {plantacoes.map((plantacoes) => (
+          <View key={plantacoes.idPlantacao} style={styles.plantacaoContainer}>
             <View style={styles.plantacaoHeader}>
-              <Text style={styles.plantacaoName}>{plantacao.name}</Text>
+              <Text style={styles.plantacaoName}>{plantacoes.nome}</Text>
               <TouchableOpacity
-                onPress={() => navigateToVisualizacao(plantacao)}
+                onPress={() => navigateToVisualizacao(plantacoes)}
                 style={styles.visualizarButton}
               >
                 <Ionicons name="eye" size={20} color="#388E3C" />
@@ -120,57 +121,57 @@ export default function GerenciarPlantacoes({ navigation }) {
             <View style={styles.plantacaoDetails}>
               <View style={styles.detailRow}>
                 <Ionicons name="leaf" size={20} color="#388E3C" />
-                <Text style={styles.detailText}>Tipo: {plantacao.type}</Text>
+                <Text style={styles.detailText}>Tipo: {plantacoes.tipoCultura}</Text>
               </View>
               <View style={styles.detailRow}>
                 <Ionicons name="expand" size={20} color="#388E3C" />
                 <Text style={styles.detailText}>
-                  Área Plantada: {plantacao.measure}
+                  Área Plantada: {plantacoes.qtdPlantada} {plantacoes.unidadeMedida}
                 </Text>
               </View>
               <View style={styles.detailRow}>
                 <Ionicons name="calendar" size={20} color="#388E3C" />
                 <Text style={styles.detailText}>
-                  Data do Plantio: {plantacao.plantingDate}
+                  Data do Plantio: {plantacoes.dataPlantio}
                 </Text>
               </View>
               <View style={styles.detailRow}>
                 <Ionicons name="cash" size={20} color="#388E3C" />
                 <Text style={styles.detailText}>
-                  Custo Inicial: {plantacao.cost}
+                  Custo Inicial: {plantacoes.custoInicial.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
                 </Text>
               </View>
-              {plantacao.status && (
+              {plantacoes.fechamento && (
                 <View style={styles.detailRow}>
                   <Ionicons name="information-circle" size={20} color="#1976D2" />
-                  <Text style={styles.detailText}>Status: {plantacao.status}</Text>
+                  <Text style={styles.detailText}>Status: {plantacoes.fechamento}</Text>
                 </View>
               )}
             </View>
             <View style={styles.actionButtons}>
               <TouchableOpacity
-                onPress={() => handleEditar(plantacao.id)}
+                onPress={() => handleEditar(plantacoes.idPlantacao)}
                 style={styles.actionButton}
               >
                 <Ionicons name="pencil" size={25} color="#388E3C" />
                 <Text style={styles.actionText}>Editar</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={() => handleFechamento(plantacao.id)}
+                onPress={() => handleFechamento(plantacoes.idPlantacao)}
                 style={styles.actionButtonFechamento}
               >
                 <Ionicons name="lock-closed" size={25} color="#FFCA28" />
                 <Text style={styles.actionText}>Fechamento</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={() => handleExcluir(plantacao.id)}
+                onPress={() => handleExcluir(plantacoes.idPlantacao)}
                 style={styles.actionButtonExcluir}
               >
                 <Ionicons name="trash" size={25} color="#E53935" />
                 <Text style={styles.actionText}>Excluir</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={() => handleRelatorio(plantacao.id)}
+                onPress={() => handleRelatorio(plantacoes.idPlantacao)}
                 style={styles.actionButtonRelatorio}
               >
                 <Ionicons name="document-text" size={25} color="#1976D2" />
