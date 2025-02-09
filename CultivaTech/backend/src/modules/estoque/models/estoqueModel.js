@@ -1,37 +1,45 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../../../config/database');
 
-const Estoque = sequelize.define('Estoque', {
-    id: {
+const Insumo = sequelize.define('Insumo', {
+    idInsumo: {
         type: DataTypes.INTEGER, // Tipo inteiro
         autoIncrement: true, // Vai auto incrementar
         allowNull: false, // Não pode ser nulo
         primaryKey: true, // Chave primária
     },
-    nomeDoProduto: { // Nome produto para cadastrar no estoque
+    nome: { // Nome produto para cadastrar no estoque
         type: DataTypes.STRING, // Tipo string
-        allowNull: false, // Não pode ser nulo       
+        allowNull: true, // Não pode ser nulo       
     },
-    dataValidade: { // Data de validade do produto
+    validade: { // Data de validade do produto
         type: DataTypes.STRING, // Tipo data
         allowNull: true, // Não pode ser nulo
     },
     unidadeMedida: { // Unidade de medida do produto
         type: DataTypes.STRING, // Tipo string
-        allowNull: false, // Não pode ser nulo 
+        allowNull: true, // Não pode ser nulo 
     },
-    quantidadeProdutoEstoque: { // Quantidade de produto no estoque
+    quantidade: { // Quantidade de produto no estoque
         type: DataTypes.FLOAT, // Tipo string
-        allowNull: false, // Não pode ser nulo 
+        allowNull: true, // Não pode ser nulo 
     },
-    custoProduto: { // Custo do produto do estoque
+    custo: { // Custo do produto do estoque
         type: DataTypes.FLOAT, // Tipo float
-        allowNull: false, // Não pode ser nulo
+        allowNull: true, // Não pode ser nulo
     },
-    dataCompraProduto: { // data de compra do produto
+    dataCompra: { // data de compra do produto
         type: DataTypes.STRING, // Tipo string
-        allowNull: false, // Não pode ser nulo
+        allowNull: true, // Não pode ser nulo
     },
+    emEstoque: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    },
+},
+{
+    tableName: 'Insumo',  // Nome da tabela no banco de dados existente
+    timestamps: false     // Definir como false se sua tabela não possui campos de data (createdAt, updatedAt)
 });
 
-module.exports = Estoque;
+module.exports = Insumo;
