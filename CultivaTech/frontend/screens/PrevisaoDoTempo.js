@@ -12,8 +12,8 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import * as Location from "expo-location";
 import {getPrevisao} from "../services/previsao"; // Importando a funcao de buscar a previsao do tempo
+import { loadLocation } from "../services/location"; // Importando a funcao de carregar a localizacao
 
 export default function WeatherForecastScreen() {
   const [refreshing, setRefreshing] = useState(false);
@@ -23,21 +23,6 @@ export default function WeatherForecastScreen() {
 
 
   
-  const loadLocation = async () => {
-    try {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        setErrorMsg("Permissão para acesso à localização negada");
-        return;
-      }
-
-      let location = await Location.getCurrentPositionAsync({});
-      setLocation(location.coords);
-    } catch (error) {
-      console.error('Erro ao obter localização:', error);
-      setErrorMsg("Erro ao obter localização");
-    }
-  };
 
   const fetchWeatherData = async () => { // Funcao para buscar os dados meteorologicos
     try {
@@ -60,7 +45,8 @@ export default function WeatherForecastScreen() {
   const onRefresh = useCallback(async () => { // Funcao que vai atualizar os dados meteorologicos, se tiver offline vai mostrar uma mensagem de erro
     setRefreshing(true);
     try {
-      await loadLocation();
+      const coords = await loadLocation();
+      setLocation(coords);
       await fetchWeatherData();
       Alert.alert("Atualizado", "Dados atualizados com sucesso!");
     } catch (error) {
@@ -70,9 +56,16 @@ export default function WeatherForecastScreen() {
   }, [location]);
 
   useEffect(() => {
-    loadLocation();
+    (async () => {
+      try {
+        const coords = await loadLocation();
+        setLocation(coords);
+      } catch (error) {
+        setErrorMsg(error.message);
+      }
+    })();
   }, []);
-
+  
   useEffect(() => {
     if (location) {
       fetchWeatherData();
