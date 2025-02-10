@@ -1,5 +1,6 @@
 const plantacaoService = require("../services/plantacaoService");
 const Plantacao = require("../models/Plantacao"); // Corrigir a importação do modelo
+// const { Plantacao } = require("../models");
 
 // 📌 Função para formatar data no padrão DD/MM/YYYY
 const formatarData = (data) => {
@@ -183,9 +184,33 @@ const excluirPlantacao = async (req, res) => {
   }
 };
 
+const fecharPlantacao = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const plantacao = await Plantacao.findByPk(id);
+
+    if (!plantacao) {
+      return res.status(404).json({ success: false, error: "Plantação não encontrada!" });
+    }
+
+    plantacao.status = "Colhido"; // Fecha a plantação
+    await plantacao.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Plantação fechada com sucesso!",
+      data: plantacao,
+    });
+  } catch (error) {
+    console.error("Erro ao fechar plantação:", error);
+    return res.status(500).json({ success: false, error: "Erro ao fechar plantação!" });
+  }
+};
+
 module.exports = {
   cadastrarPlantacao,
   listarPlantacoes,
   atualizarPlantacao,
   excluirPlantacao,
+  fecharPlantacao,
 };
