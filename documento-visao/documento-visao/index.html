@@ -1,0 +1,3766 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../../documento-requisitos/documento-requisitos/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
+    
+    
+      
+        <title>Documento de Visão - Documentação</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-visao-geral-do-produto-e-do-projeto" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Documentação" class="md-header__button md-logo" aria-label="Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentação
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Documento de Visão
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentação" class="md-nav__button md-logo" aria-label="Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Documentação
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instruções mkdocs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Documento de Visão
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Visão
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#versao-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      Versão 1.8
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Problema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Problema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contexto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detalhamento-do-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detalhamento do Problema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-ishikawa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagrama de Ishikawa
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#justificativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Justificativa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-declaracao-de-posicao-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Declaração de Posição do Produto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Declaração de Posição do Produto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabela-1-posicao-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabela 1: Posição do Produto
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-objetivos-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Objetivos do Produto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-tecnologias-a-serem-utilizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Tecnologias a Serem Utilizadas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 Tecnologias a Serem Utilizadas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linguagens-frameworks-e-bibliotecas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linguagens, Frameworks e Bibliotecas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#banco-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Banco de Dados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      APIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ferramentas-de-desenvolvimento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ferramentas de Desenvolvimento
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metodologia
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documento-requisitos/documento-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Requisitos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documento-arquitetura/documento-arquitetura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Arquitetura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documento-plano-testes/documento-plano-testes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documento de Plano de Testes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Atas de Reunião
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Atas de Reunião
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/ata-reuniao-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/ata-reuniao-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/ata-reuniao-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/ata-reuniao-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/ata-reuniao-5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/ata-reuniao-6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ata 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#versao-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      Versão 1.8
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Problema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Problema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contexto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detalhamento-do-problema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detalhamento do Problema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagrama-de-ishikawa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagrama de Ishikawa
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#justificativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Justificativa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-declaracao-de-posicao-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Declaração de Posição do Produto
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Declaração de Posição do Produto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabela-1-posicao-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabela 1: Posição do Produto
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-objetivos-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Objetivos do Produto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-tecnologias-a-serem-utilizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Tecnologias a Serem Utilizadas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 Tecnologias a Serem Utilizadas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linguagens-frameworks-e-bibliotecas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linguagens, Frameworks e Bibliotecas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#banco-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Banco de Dados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      APIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ferramentas-de-desenvolvimento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ferramentas de Desenvolvimento
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodologia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metodologia
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="1-visao-geral-do-produto-e-do-projeto">1 Visão Geral do Produto e do Projeto</h1>
+<h3 id="versao-18">Versão 1.8</h3>
+<h2 id="11-problema">1.1 Problema</h2>
+<h3 id="contexto">Contexto</h3>
+<p>Muitos agricultores enfrentam dificuldades no gerenciamento eficaz de suas plantações devido à falta de ferramentas adequadas para monitorar e registrar atividades agrícolas. Além disso, a falta de sistemas de previsão meteorológica afeta negativamente a capacidade dos agricultores se prepararem para condições climáticas adversas, como chuvas intensas e secas, que podem prejudicar certas culturas.</p>
+<h3 id="detalhamento-do-problema">Detalhamento do Problema</h3>
+<ul>
+<li><strong>Falta de Controle e Registro:</strong> Agricultores não possuem um histórico das atividades agrícolas, incluindo plantio, colheita, uso de insumos e outro custos adicionais.</li>
+<li><strong>Previsão Meteorológica Inadequada:</strong> Não há um aplicativo eficaz para prever o tempo com antecedência suficiente, o que impede a preparação adequada para condições climáticas adversas como chuvas intensas e secas prolongadas.</li>
+<li><strong>Gestão Financeira Ineficiente:</strong> Sem registros detalhados, os agricultores têm dificuldades para calcular os custos e lucros de cada plantação.</li>
+</ul>
+<h3 id="diagrama-de-ishikawa">Diagrama de Ishikawa</h3>
+<p>O diagrama abaixo representa o problema central do gerenciamento de plantações e ajuda a visualizar e entender as origens do problema:
+<img alt="Figura 1" src="../diagrama-1.png" />
+<center>
+Figura 1: Diagrama espinha de peixe
+</center></p>
+<h2 id="justificativa">Justificativa</h2>
+<p>O desenvolvimento dessa aplicação mobile visa solucionar os principais problemas enfrentados pelos agricultores, proporcionando uma ferramenta robusta para o gerenciamento eficaz das plantações, aumentando a produtividade e a lucratividade das operações agrícolas. </p>
+<p>Essa solução pode contribuir para a resolução do problema por meio da centralização das informações em um aplicativo. Nesse aplicativo o agricultor pode gerenciar suas plantações(Cadastrar, Editar, Consultar e Exclir), gerenciar as colheitas dessas plantações cadastradas, gerenciar o uso de insumos, vizualizar relatorios das atividades realizadas em cada plantação, vizualizar informações climaticas e gerenciar o estoque de produtos.</p>
+<p>Espera-se que a implementação dessa solução não apenas resolva os problemas de desorganização e falta de controle, mas também otimize os processos agrícolas, contribuindo para o aumento da produtividade e rentabilidade dos pequenos e médios produtores rurais.</p>
+<h2 id="12-declaracao-de-posicao-do-produto">1.2 Declaração de Posição do Produto</h2>
+<p>A fim de aprimorar a gestão agrícola e fornecer uma ferramenta eficiente para pequenos e médios produtores rurais, o desenvolvimento do <strong>CulturaTech</strong> foi cuidadosamente planejado. Este aplicativo visa abordar diversas necessidades identificadas no setor agrícola, oferecendo funcionalidades inovadoras e acessíveis para os agricultores. A seguir, apresentamos a declaração de posicionamento do produto, detalhando seu propósito, escopo e diferenciais.</p>
+<h3 id="tabela-1-posicao-do-produto">Tabela 1: Posição do Produto</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Item</strong></th>
+<th><strong>Descrição</strong></th>
+<th><strong>Comentário</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Para</strong></td>
+<td>Agricultores e pequenos produtores rurais.</td>
+<td>Foco em um público que carece de ferramentas tecnológicas acessíveis para gerenciar suas plantações de forma eficiente.</td>
+</tr>
+<tr>
+<td><strong>Necessidade</strong></td>
+<td>Facilitar o gerenciamento completo das plantações, desde o cadastro do plantio até a colheita, com previsões climáticas precisas.</td>
+<td>A necessidade identificada reflete a falta de controle organizado e de informações meteorológicas confiáveis no dia a dia dos pequenos e médios produtores.</td>
+</tr>
+<tr>
+<td><strong>O (nome do produto)</strong></td>
+<td>É um aplicativo mobile para controle de plantações, gestão financeira e previsão meteorológica com o nome CulturaTech.</td>
+<td>A proposta do produto é oferecer uma solução centralizada e acessível para a gestão agrícola, usando tecnologia mobile.</td>
+</tr>
+<tr>
+<td><strong>Que</strong></td>
+<td>Fornece aos agricultores controle sobre suas plantações, incluindo histórico de plantio, colheita, atividades agrícolas como adubação, fertilização, etc.</td>
+<td>As funcionalidades abrangem as etapas do processo agrícola, facilitando a tomada de decisão baseada nas informações obtidas durante esse processo.</td>
+</tr>
+<tr>
+<td><strong>Ao contrário</strong></td>
+<td>Sistemas manuais ou inexistentes, que não fornecem dados centralizados e precisos.</td>
+<td>Diferencia-se das práticas tradicionais (como anotações em papel), que são ineficazes para fornecer uma visão integrada da plantação.</td>
+</tr>
+<tr>
+<td><strong>Nosso produto</strong></td>
+<td>Oferece uma solução integrada, com previsões meteorológicas e relatórios financeiros sobre cada plantação cadastrada, diferenciando-se por atender às necessidades específicas de pequenos e médios produtores.</td>
+<td>A integração das funcionalidades, especialmente as notificações antecipadas de chuvas, é um diferencial competitivo importante.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="13-objetivos-do-produto">1.3 Objetivos do Produto</h2>
+<ul>
+<li><strong>Melhorar a Gestão das Plantações:</strong></li>
+<li><strong>Cadastro e Monitoramento:</strong> Permitir que os agricultores registrem e monitorem detalhadamente cada plantação, incluindo a quantidade de insumos utilizados, as colheitas que foram realizadas e os custos adicionais dessa plantação.</li>
+<li><strong>Histórico de Atividades:</strong> Manter um histórico completo e acessível das atividades realizadas nas plantações, visando uma análise futura e melhor tomada de decisões.</li>
+<li><strong>Aumentar a Precisão das Previsões Meteorológicas:</strong></li>
+<li><strong>Notificações Antecipadas:</strong> Implementar um sistema de notificações meteorológicas que avise os agricultores, com antecedência mínima de 12 horas, sobre a previsão de chuva ou outras condições climáticas adversas.</li>
+<li><strong>Preparação para Clima Adverso:</strong> Ajudar os agricultores a se prepararem adequadamente para condições climáticas adversas, diminuindo perdas e danos às plantações.</li>
+<li><strong>Otimizar a Gestão Financeira:</strong></li>
+<li><strong>Relatórios Financeiros Detalhados:</strong> Fornecer ferramentas para gerar relatórios detalhados sobre custos, receitas e lucros das plantações.</li>
+<li><strong>Controle de Insumos:</strong> Monitorar e registrar o uso de insumos agrícolas, como fertilizantes e pesticidas, para otimizar custos e melhorar a eficiência.</li>
+</ul>
+<h2 id="14-tecnologias-a-serem-utilizadas">1.4 Tecnologias a Serem Utilizadas</h2>
+<h3 id="linguagens-frameworks-e-bibliotecas">Linguagens, Frameworks e Bibliotecas</h3>
+<ul>
+<li>React Native: Linguagem utilizada para o frontend de aplicativos mobile;</li>
+<li>Expo: Plataforma para desenvolvimento de aplicativos;</li>
+<li>NodeJS: Framework de JavaScript para o backend da aplicação;</li>
+<li>Axios: Biblioteca de JS para realizar requisições HTTTP;</li>
+<li>Express: Framework do NodeJS utilizado para construir APIs de comunicação;</li>
+<li>Sequelize: ORM para NodeJS que simplifica a interação com o banco de dados.</li>
+</ul>
+<h3 id="design">Design</h3>
+<ul>
+<li>Figma;</li>
+<li>Canva;</li>
+<li>React Native Paper e React Native Elements (Biblioteca de UI).</li>
+</ul>
+<h3 id="banco-de-dados">Banco de Dados</h3>
+<ul>
+<li>SQLite.</li>
+</ul>
+<h3 id="apis">APIs</h3>
+<ul>
+<li>HGBrasil: Para previsão do tempo.</li>
+</ul>
+<h3 id="ferramentas-de-desenvolvimento">Ferramentas de Desenvolvimento</h3>
+<ul>
+<li>Visual Studio Code;</li>
+<li>Git;</li>
+<li>GitHub;</li>
+<li>Expo CLI;</li>
+<li>Android Studio;</li>
+<li>Insomnia: Para realização de teste;</li>
+<li>SQLiteStudio: Para a vizualização do banco de dados.</li>
+</ul>
+<h3 id="metodologia">Metodologia</h3>
+<ul>
+<li>Ágil.</li>
+<li><strong>Processo:</strong></li>
+<li>SCRUM e XP.</li>
+</ul>
+<h1 id="2-visao-geral-do-projeto">2 Visão Geral do Projeto</h1>
+<h2 id="21-ciclo-de-vida-do-projeto-de-desenvolvimento-de-software">2.1 Ciclo de Vida do Projeto de Desenvolvimento de Software</h2>
+<p><img alt="Figura 2" src="../diagrama-2.png" />
+<center>
+Figura 2: Ciclo de vida do projeto
+</center></p>
+<h3 id="metodologia_1">Metodologia</h3>
+<p>Usando um ciclo de vida ágil como metodologia para responder bem às frequentes mudanças, realizar entregas rápidas e obter feedbacks constantes do cliente. Essa abordagem permite um desenvolvimento centrado no cliente, garantindo a qualidade do produto.</p>
+<h3 id="processo">Processo</h3>
+<ul>
+<li><strong>Scrum</strong>: Utilizando Scrum para estruturar e gerenciar o projeto em constante comunicação com o cliente, com entregas frequentes.</li>
+<li><strong>XP (Extreme Programming)</strong>: Usa feedback rápido e comunicação com alta taxa de disponibilidade para maximizar a entrega de valor, por meio de um cliente no local, uma abordagem de planejamento específica e testes constantes.</li>
+</ul>
+<h3 id="procedimentos">Procedimentos</h3>
+<h4 id="planejamento">Planejamento</h4>
+<ul>
+<li>Dividir o <strong>Product Backlog</strong> em tarefas menores e organizá-las por prioridade.</li>
+<li>Usar técnicas como <strong>Story Mapping</strong> para identificar prioridades.</li>
+</ul>
+<h4 id="desenvolvimento">Desenvolvimento</h4>
+<ul>
+<li><strong>Práticas do XP</strong>: Programação em pares, com dois desenvolvedores trabalhando juntos no mesmo código.</li>
+<li><strong>Práticas do Scrum</strong>: Integração contínua, verificando constantemente o código para evitar problemas quando adicionada uma nova funcionalidade.</li>
+</ul>
+<h4 id="entrega-e-feedback">Entrega e Feedback</h4>
+<ul>
+<li>Liberar <strong>releases</strong> durante o processo de desenvolvimento, versões incrementais.</li>
+<li>Obter feedback do cliente para possíveis ajustes.</li>
+</ul>
+<h3 id="metodos">Métodos</h3>
+<ul>
+<li><strong>Acompanhamento de Projeto</strong>: Direto com o <strong>Project Owner</strong>, dando feedbacks sobre a aplicação aos desenvolvedores, evitando erros de interpretação.</li>
+<li><strong>Verificação e Validação</strong>: Conjunto de atividades conduzidas ao longo do ciclo de vida de um projeto de software para garantir a qualidade do produto entregue ao final do desenvolvimento.</li>
+<li><strong>Processos Formais de Entrega</strong>: Validação rápida e ágil.</li>
+</ul>
+<h3 id="ferramentas">Ferramentas</h3>
+<ul>
+<li><strong>React Native</strong>: Front-end.</li>
+<li><strong>Node.js</strong>: Back-end.</li>
+<li><strong>Figma</strong>: Protótipo.</li>
+<li><strong>Canva</strong>: Design.</li>
+<li><strong>GitHub</strong>: Controle de versão.</li>
+</ul>
+<h2 id="22-organizacao-do-projeto">2.2 Organização do Projeto</h2>
+<h3 id="tabela-2-organizacao-do-projeto">Tabela 2: Organização do Projeto</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Papel</strong></th>
+<th><strong>Atribuições</strong></th>
+<th><strong>Responsável</strong></th>
+<th><strong>Participantes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dono do produto</strong></td>
+<td>Atualizar o escopo do produto, organizar o escopo das sprints, validar as entregas</td>
+<td>Gabriel Berto</td>
+<td>Gabriel Berto, Will Sales</td>
+</tr>
+<tr>
+<td><strong>Analista de qualidade</strong></td>
+<td>Garantir a qualidade do produto, garantir o cumprimento do conceito de pronto, realizar inspeções de código</td>
+<td>Equipe do Projeto</td>
+<td>Equipe do Projeto</td>
+</tr>
+<tr>
+<td><strong>Desenvolvedor</strong></td>
+<td>Codificar o produto, codificar testes unitários, realizar refatoração</td>
+<td>Equipe do Projeto</td>
+<td>Equipe do Projeto</td>
+</tr>
+<tr>
+<td><strong>Scrum Master</strong></td>
+<td>Garantir a aplicação das práticas ágeis, remover impedimentos e facilitar a colaboração</td>
+<td>Joao Pedro Ferreira Moraes</td>
+<td>Joao Pedro Ferreira Moraes</td>
+</tr>
+<tr>
+<td><strong>Cliente</strong></td>
+<td>Fornecer os requisitos iniciais, priorizar o Product Backlog, garantir que o produto atenda ao valor esperado</td>
+<td>Will Sales</td>
+<td>Will Sales</td>
+</tr>
+</tbody>
+</table>
+<h1 id="23-planejamento-das-fases-eou-iteracoes-do-projeto">2.3 Planejamento das Fases e/ou Iterações do Projeto</h1>
+<h3 id="tabela-3-planejamento-do-projeto">Tabela 3: Planejamento do Projeto</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Sprint</strong></th>
+<th><strong>Desenvolvimento (Entrega)</strong></th>
+<th><strong>Data Início</strong></th>
+<th><strong>Data Fim</strong></th>
+<th><strong>Entregável(eis)</strong></th>
+<th><strong>Responsáveis</strong></th>
+<th><strong>% conclusão</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Definição do Produto</td>
+<td>22/11/2024</td>
+<td>29/11/2024</td>
+<td></td>
+<td>Equipe do Projeto</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Desenvolvimento de Documento de Visão</td>
+<td>29/11/2024</td>
+<td>06/12/2024</td>
+<td>Documento de Visão</td>
+<td>Equipe do Projeto</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Desenvolvimento do Documento de arquitetura</td>
+<td>11/12/2024</td>
+<td>18/12/2024</td>
+<td>Documento de arquitetura</td>
+<td>Equipe do Projeto</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Desenvolvimento do design das telas no Figma</td>
+<td>20/12/2024</td>
+<td>27/12/2024</td>
+<td></td>
+<td>Equipe do Projeto</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Feriado</td>
+<td>27/12/2024</td>
+<td>03/01/2025</td>
+<td>Feriado</td>
+<td>Equipe do Projeto</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Desenvolvimento do Front-End do aplicativo</td>
+<td>03/01/2025</td>
+<td>10/01/2025</td>
+<td></td>
+<td>Equipe do Projeto</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Desenvolvimento do Modulos de plantação e a Previsão do tempo</td>
+<td>10/01/2025</td>
+<td>17/01/2025</td>
+<td></td>
+<td>Equipe do Projeto</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Desenvolvimento dos Modulos de colheitas, Estoque, Custos</td>
+<td>17/01/2025</td>
+<td>24/01/2025</td>
+<td></td>
+<td>Equipe do Projeto</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Desenvolvimento do Modulo de Insumos, Relacionamentos do banco de dados, integração geral</td>
+<td>24/01/2025</td>
+<td>31/01/2025</td>
+<td></td>
+<td>Equipe do Projeto</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Desenvolvimento do Backup de Dados, Notificacoes, e detalhes finais</td>
+<td>31/01/2025</td>
+<td>07/02/2025</td>
+<td></td>
+<td>Equipe do Projeto</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Testes do Software e correção de bugs</td>
+<td>07/02/2025</td>
+<td>10/02/2025</td>
+<td></td>
+<td>Equipe do Projeto</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="24-matriz-de-comunicacao">2.4 Matriz de Comunicação</h2>
+<ul>
+<li><strong>Monitoramento do progresso do projeto:</strong></li>
+<li>A duração de cada Sprint é de uma semana.</li>
+<li>A comunicação será realizada de forma periódica para garantir o acompanhamento contínuo das atividades.</li>
+<li>Transparência no progresso do projeto.</li>
+</ul>
+<h3 id="tabela-4-matriz-de-comunicacao">Tabela 4: Matriz de Comunicação</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Descrição</strong></th>
+<th><strong>Área/Envolvidos</strong></th>
+<th><strong>Periodicidade</strong></th>
+<th><strong>Produtos Gerados</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acompanhamento das Atividades em Andamento</td>
+<td>Equipe do Projeto</td>
+<td>Semanal</td>
+<td>Ata de reunião / Gravação, Relatório de situação do projeto</td>
+</tr>
+<tr>
+<td>Acompanhamento dos Riscos, Compromissos, Ações Pendentes, Indicadores</td>
+<td>Equipe do Projeto</td>
+<td>Quinzenal</td>
+<td>Relatório de situação do projeto</td>
+</tr>
+<tr>
+<td>Comunicar situação do projeto</td>
+<td>Equipe / Professor / Monitor</td>
+<td>Semanal</td>
+<td>Ata de reunião / Gravação, Relatório de situação do projeto</td>
+</tr>
+<tr>
+<td>Feedback do Cliente</td>
+<td>Will, Gabriel</td>
+<td>Ao final de cada sprint (Semanal)</td>
+<td>Relatório de feedback</td>
+</tr>
+</tbody>
+</table>
+<h2 id="25-gerenciamento-de-riscos">2.5 Gerenciamento de Riscos</h2>
+<ul>
+<li><strong>Identificação dos riscos</strong></li>
+<li>Relatório de feedback</li>
+<li>
+<p>Detecção de riscos possíveis e detectáveis em cada fase do projeto, com base em análise de contexto e histórico.</p>
+</li>
+<li>
+<p><strong>Análise e Avaliação</strong></p>
+</li>
+<li>
+<p>Grau de exposição de cada risco identificado. Riscos com alta probabilidade e impacto exigem ações de mitigação imediatas.</p>
+</li>
+<li>
+<p><strong>Revisão Periódica</strong></p>
+</li>
+<li>
+<p>A lista de riscos será revisada regularmente para garantir que os riscos foram identificados e que novos riscos não passaram despercebidos.</p>
+</li>
+<li>
+<p><strong>Registro e Monitoramento</strong></p>
+</li>
+<li>Todos os riscos serão registrados no relatório de situação do projeto, com atualização constante conforme necessário.</li>
+</ul>
+<h3 id="tabela-5-gerenciamento-de-risco">Tabela 5: Gerenciamento de Risco</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Risco</strong></th>
+<th><strong>Grau de exposição</strong></th>
+<th><strong>Mitigação</strong></th>
+<th><strong>Plano de Contingência</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Atraso nas entregas</td>
+<td>Alto</td>
+<td>Alinhar cronograma com equipe, ajustes semanais</td>
+<td>Reforçar equipes, ajustes de prioridade nas tarefas</td>
+</tr>
+<tr>
+<td>Falha na comunicação</td>
+<td>Médio</td>
+<td>Reuniões semanais para alinhamento</td>
+<td>Uso de ferramentas de comunicação adicionais</td>
+</tr>
+<tr>
+<td>Problemas técnicos</td>
+<td>Alto</td>
+<td>Testes contínuos, suporte técnico dedicado</td>
+<td>Soluções alternativas para problemas críticos</td>
+</tr>
+<tr>
+<td>Mudança nos requisitos</td>
+<td>Médio</td>
+<td>Validação constante com o cliente</td>
+<td>Ajuste do escopo, renegociação de prazos</td>
+</tr>
+<tr>
+<td>Falta de recursos humanos</td>
+<td>Baixo</td>
+<td>Planejamento de pessoal, capacitação contínua</td>
+<td>Redistribuição de tarefas</td>
+</tr>
+</tbody>
+</table>
+<h2 id="26-criterios-de-replanejamento">2.6 Critérios de Replanejamento</h2>
+<p>O replanejamento em um projeto de software ocorre quando há a necessidade de ajustar o 
+planejamento original devido a mudanças, imprevistos ou a detecção de que o projeto está 
+fora do curso. O replanejamento visa realinhar os objetivos, prazos e recursos de modo a 
+garantir que o projeto continue progredindo de forma eficiente e atenda aos requisitos 
+estabelecidos. </p>
+<p>Os critérios de replanejamento geralmente são baseados em indicadores que sinalizam a 
+necessidade de ajustes </p>
+<ul>
+<li>Atraso no cronograma</li>
+<li>Número excessivo de atrasos nas entregas que torna necessário a alteração no cronograma</li>
+<li>
+<p>Mudanças de prioridades podem causar atrasos sendo necessária a alteração no cronograma</p>
+</li>
+<li>
+<p>Problemas de qualidade</p>
+</li>
+<li>Software apresenta quantidade de defeitos grande será necessário replanejar a alocação de tempo para testes, correções e validações</li>
+<li>
+<p>Durante a execução do projeto forem observadas falhas em atender aos padrões de qualidade</p>
+</li>
+<li>
+<p>Mudança nos requisitos</p>
+</li>
+<li>Novos requisitos ou mudanças nos que já existem podem exigir ajustes no projeto</li>
+<li>
+<p>Se os requisitos fornecidos inicialmente estavam incompletos ou foram mal interpretados, pode ser necessário replanejar as entregas  </p>
+</li>
+<li>
+<p>Falta de recurso humano</p>
+</li>
+<li>Caso a equipe de desenvolvimento ou outros recursos necessários não estejam disponíveis ou não possuam a competência necessária, será preciso ajustar o plano</li>
+</ul>
+<h1 id="3-processo-de-desenvolvimento-de-software">3 Processo de Desenvolvimento de Software</h1>
+<h2 id="31-metodologia">3.1 Metodologia</h2>
+<p>Adotamos um ciclo de vida ágil baseado nas metodologias Scrum e XP, priorizando respostas rápidas às mudanças e entregas frequentes para obter feedbacks constantes do cliente. Essa abordagem garante um desenvolvimento centrado no cliente e assegura a qualidade do produto ao longo do processo.</p>
+<h2 id="32-principais-etapas-do-processo">3.2 Principais etapas do processo:</h2>
+<h3 id="planejamento_1">Planejamento:</h3>
+<ul>
+<li>Divisão do Product Backlog, criado e priorizado com o cliente.</li>
+<li>Uso de técnicas como Story mapping para definir prioridades e funcionalidades.</li>
+<li>As tarefas priorizadas são distribuídas entre as Sprints (ciclo de trabalho de curta duração).</li>
+</ul>
+<h3 id="desenvolvimento_1">Desenvolvimento:</h3>
+<ul>
+<li><strong>Práticas de Scrum:</strong></li>
+<li>Desenvolvimento em Sprints (ciclos curtos de 1-2 semanas).</li>
+<li>Revisões periódicas do progresso do Sprint.</li>
+<li><strong>Práticas de XP:</strong></li>
+<li>Programação em dupla para maior qualidade e compartilhamento de conhecimento.</li>
+<li>Testes constantes e integração contínua para minimizar problemas.</li>
+</ul>
+<h3 id="entrega-e-feedback_1">Entrega e Feedback:</h3>
+<ul>
+<li>Liberação de releases intermediárias para validação contínua do cliente.</li>
+<li>Obtenção de feedback imediato para ajustes e melhorias.</li>
+</ul>
+<h3 id="verificacao-e-validacao">Verificação e Validação:</h3>
+<ul>
+<li>Atividades contínuas ao longo do ciclo de vida para garantir a qualidade do produto.</li>
+<li>Processos ágeis de validação, realizados em conjunto com o cliente.</li>
+</ul>
+<h3 id="papeis-e-responsabilidades">Papeis e Responsabilidades:</h3>
+<ul>
+<li><strong>Product Owner (PO):</strong> Define as prioridades, valida as entregas e oferece feedback constante à equipe.</li>
+<li><strong>Scrum Master:</strong> Facilita os ritos do Scrum e garante que a equipe siga o processo.</li>
+<li><strong>Equipe de Desenvolvimento:</strong> Implementa as funcionalidades, realiza testes e entrega os incrementos.</li>
+<li><strong>Cliente:</strong> Participa ativamente com feedbacks e valida as entregas.</li>
+</ul>
+<h3 id="ferramentas-utilizadas">Ferramentas Utilizadas:</h3>
+<ul>
+<li><strong>React Native:</strong> Desenvolvimento do front-end.</li>
+<li><strong>Node.js:</strong> Desenvolvimento do back-end.</li>
+<li><strong>Figma:</strong> Criação de protótipos.</li>
+<li><strong>Canva:</strong> Design de elementos gráficos.</li>
+<li><strong>Github:</strong> Controle de versão e colaboração de códigos.</li>
+</ul>
+<h1 id="4-declaracao-de-escopo-do-projeto">4 Declaração de Escopo do Projeto</h1>
+<h2 id="41-backlog-do-produto">4.1 Backlog do Produto</h2>
+<p>Os itens de backlog do produto foram obtidos a partir de entrevistas com o P.O., e em seguida, refinados para apresentar as funcionalidades desejadas no produto final.</p>
+<h3 id="tabela-6-backlog-do-produto-inicial">Tabela 6: Backlog do Produto Inicial</h3>
+<table>
+<thead>
+<tr>
+<th><strong>ID</strong></th>
+<th><strong>História</strong></th>
+<th><strong>Prioridade</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>Gerenciar Plantação</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td>02</td>
+<td>Gerenciar Colheita</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td>03</td>
+<td>Gerenciar Estoque</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>04</td>
+<td>Gerenciar Insumos</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td>05</td>
+<td>Gerenciar Custos Adicionais</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>06</td>
+<td>Gerenciar Custos Gerais</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>07</td>
+<td>Gerar Relatorios em PDF</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td>08</td>
+<td>Informações do Clima</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td>09</td>
+<td>Widget do Produto</td>
+<td>Baixa</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Backup de dados</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Notificações sobre o clima</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Notificações sobre o estoque</td>
+<td>Média</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tabela-7-backlog-do-produto-refinado">Tabela 7: Backlog do Produto Refinado</h3>
+<table>
+<thead>
+<tr>
+<th><strong>ID</strong></th>
+<th><strong>História</strong></th>
+<th><strong>ID</strong></th>
+<th><strong>Épico</strong></th>
+<th><strong>Prioridade</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H01</td>
+<td>Gerenciar Plantação</td>
+<td>E01</td>
+<td>Cadastrar Plantação</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E02</td>
+<td>Consultar Plantação</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E03</td>
+<td>Editar Plantação</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E04</td>
+<td>Fechar Plantação</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E05</td>
+<td>Excluir Plantação</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>H02</td>
+<td>Gerenciar Colheita</td>
+<td>E06</td>
+<td>Cadastrar Colheita</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E07</td>
+<td>Consultar Colheita</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E08</td>
+<td>Editar Colheita</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E09</td>
+<td>Fechar Colheita</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E10</td>
+<td>Excluir Colheita</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>H03</td>
+<td>Gerenciar Estoque</td>
+<td>E11</td>
+<td>Cadastrar Item</td>
+<td>Média</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E12</td>
+<td>Consultar Estoque</td>
+<td>Média</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E13</td>
+<td>Editar Item</td>
+<td>Média</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E14</td>
+<td>Excluir Item</td>
+<td>Média</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E15</td>
+<td>Alerta de Item</td>
+<td>Baixa</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>H04</td>
+<td>Gerenciar Insumo</td>
+<td>E16</td>
+<td>Cadastrar Insumo</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E17</td>
+<td>Listar Insumos</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E18</td>
+<td>Editar Insumo</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E19</td>
+<td>Excluir Insumo</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>H05</td>
+<td>Gerenciar Custos</td>
+<td>E20</td>
+<td>Cadastrar Custos Adicionais</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E21</td>
+<td>Listar Custos Adicionais</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E22</td>
+<td>Editar Custos Adicionais</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E23</td>
+<td>Excluir Custos Adicionais</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>H06</td>
+<td>Gerenciar Custos Gerais</td>
+<td>E24</td>
+<td>Cadastrar Custo Geral</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E25</td>
+<td>Consultar Custo Geral</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E26</td>
+<td>Editar Custo Geral</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E27</td>
+<td>Excluir Custo Geral</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>H07</td>
+<td>Informações do Clima</td>
+<td>E28</td>
+<td>Ver Previsão do Tempo</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E29</td>
+<td>Enviar Alertas do Clima</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>E30</td>
+<td>Personalizar Notificação</td>
+<td>Baixa</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>H08</td>
+<td>Widget do Produto</td>
+<td>E31</td>
+<td>Criar Widget</td>
+<td>Baixa</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>H09</td>
+<td>Backup de Dados</td>
+<td>E32</td>
+<td>Fazer Backup</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>H10</td>
+<td>Exportar Documento</td>
+<td>E33</td>
+<td>Exportar Documentos para PDF</td>
+<td>Muito Alta</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="42-perfis">4.2 Perfis</h2>
+<h3 id="tabela-8-perfis-de-acesso">Tabela 8: Perfis de Acesso</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Nome do perfil</th>
+<th>Características do perfil</th>
+<th>Permissões de acesso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>Usuário</td>
+<td>Responsável por cadastrar colheitas e plantações no sistema, gerenciar estoque e consultar relatórios e previsão do tempo.</td>
+<td>O usuário possui acesso a todas as funcionalidades do sistema.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="43-cenarios">4.3 Cenários</h2>
+<h3 id="tabela-9-cenarios-funcionais">Tabela 9: Cenários Funcionais</h3>
+<p>Sistema: xxx – Cenários funcionais</p>
+<table>
+<thead>
+<tr>
+<th><strong>Numeração do cenário</strong></th>
+<th><strong>Nome do cenário</strong></th>
+<th><strong>Sprints</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E01</td>
+<td>Cadastrar Plantação</td>
+<td>07</td>
+</tr>
+<tr>
+<td>E02</td>
+<td>Consultar Plantação</td>
+<td></td>
+</tr>
+<tr>
+<td>E03</td>
+<td>Editar Plantação</td>
+<td></td>
+</tr>
+<tr>
+<td>E04</td>
+<td>Fechar Plantação</td>
+<td></td>
+</tr>
+<tr>
+<td>E05</td>
+<td>Excluir Plantação</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E06</td>
+<td>Cadastrar Colheita</td>
+<td>08</td>
+</tr>
+<tr>
+<td>E07</td>
+<td>Consultar Colheita</td>
+<td></td>
+</tr>
+<tr>
+<td>E08</td>
+<td>Editar Colheita</td>
+<td></td>
+</tr>
+<tr>
+<td>E09</td>
+<td>Excluir Colheita</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E10</td>
+<td>Cadastrar Item</td>
+<td>08</td>
+</tr>
+<tr>
+<td>E11</td>
+<td>Consultar estoque</td>
+<td></td>
+</tr>
+<tr>
+<td>E12</td>
+<td>Editar Item</td>
+<td></td>
+</tr>
+<tr>
+<td>E13</td>
+<td>Excluir Item</td>
+<td></td>
+</tr>
+<tr>
+<td>E14</td>
+<td>Alerta de Item</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E15</td>
+<td>Cadastrar Insumo</td>
+<td></td>
+</tr>
+<tr>
+<td>E16</td>
+<td>Listar Insumos</td>
+<td></td>
+</tr>
+<tr>
+<td>E17</td>
+<td>Editar Insumo</td>
+<td></td>
+</tr>
+<tr>
+<td>E18</td>
+<td>Excluir Insumo</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E27</td>
+<td>Cadastrar Custos</td>
+<td>08</td>
+</tr>
+<tr>
+<td>E28</td>
+<td>Listar Custos</td>
+<td></td>
+</tr>
+<tr>
+<td>E29</td>
+<td>Editar Custos</td>
+<td></td>
+</tr>
+<tr>
+<td>E30</td>
+<td>Excluir Custos</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E31</td>
+<td>Cadastrar Custo</td>
+<td>10</td>
+</tr>
+<tr>
+<td>E32</td>
+<td>Consultar Custo</td>
+<td></td>
+</tr>
+<tr>
+<td>E33</td>
+<td>Editar Custo</td>
+<td></td>
+</tr>
+<tr>
+<td>E34</td>
+<td>Excluir Custo</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E35</td>
+<td>Ver Previsão do Tempo</td>
+<td>07</td>
+</tr>
+<tr>
+<td>E36</td>
+<td>Enviar Alertas do Clima</td>
+<td></td>
+</tr>
+<tr>
+<td>E37</td>
+<td>Personalizar Notificação</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E38</td>
+<td>Criar Widget</td>
+<td>10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E39</td>
+<td>Fazer Backup</td>
+<td>10</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E40</td>
+<td>Exportar Documentos para PDF</td>
+<td>08</td>
+</tr>
+<tr>
+<td>--------------------------</td>
+<td>---------------------------------</td>
+<td>-------------</td>
+</tr>
+</tbody>
+</table>
+<h2 id="44-historias-de-usuario">4.4 Histórias de Usuário</h2>
+<h3 id="tabela-10-historias-de-usuario">Tabela 10: Histórias de Usuário</h3>
+<table>
+<thead>
+<tr>
+<th><strong>US</strong></th>
+<th><strong>Descrição</strong></th>
+<th><strong>Cenário</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US01</td>
+<td>Como um agricultor eu quero poder registrar informações sobre minhas plantações para ter um melhor gerenciamento sobre ela.</td>
+<td>Cadastrar Plantação</td>
+</tr>
+<tr>
+<td><strong>US01 - Aceite</strong></td>
+<td>Apresentar formulário com informações como:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Nome da Plantação</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Tipo de Cultura</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Área Plantada</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Data do Plantio</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Quantidade</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Custo Primário</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US02</td>
+<td>Como um agricultor, quero poder consultar minhas plantações para visualizar suas informações.</td>
+<td>Consultar Plantação</td>
+</tr>
+<tr>
+<td><strong>US02 - Aceite</strong></td>
+<td>Apresentar uma lista das plantações cadastradas com as informações:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Nome da Plantação</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Tipo de Cultura</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Área Plantada</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Data do Plantio</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Quantidade</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Custo Primário</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US03</td>
+<td>Como um agricultor, quero poder editar informações sobre minhas plantações para ter um controle mais eficiente das informações.</td>
+<td>Editar Plantação</td>
+</tr>
+<tr>
+<td><strong>US03 - Aceite</strong></td>
+<td>Apresentar as informações da plantação selecionada e permitir edição nas informações:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Nome da Plantação</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Tipo de Cultura</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Área Plantada</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Data do Plantio</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Quantidade</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Custo Primário</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US04</td>
+<td>Como um agricultor eu quero poder fechar minhas plantações para tê-las como concluídas.</td>
+<td>Fechar Plantação</td>
+</tr>
+<tr>
+<td><strong>US04 - Aceite</strong></td>
+<td>Apresentar uma opção que sete a plantação como fechada e não permitir mais edições</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US05</td>
+<td>Como um agricultor eu quero poder excluir minhas plantações para manter apenas os registros importantes.</td>
+<td>Excluir Plantação</td>
+</tr>
+<tr>
+<td><strong>US05 - Aceite</strong></td>
+<td>Permitir a exclusão de plantação.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US06</td>
+<td>Como um agricultor, quero poder registrar informações sobre minhas colheitas para ter um melhor gerenciamento sobre ela.</td>
+<td>Cadastrar Colheita</td>
+</tr>
+<tr>
+<td><strong>US06 - Aceite</strong></td>
+<td>Apresentar formulário com informações como:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Quantidade Colhida</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Qualidade</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Destino</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Data da Colheita</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Custo da Colheita</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Valor de Venda</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US07</td>
+<td>Como um agricultor, quero poder consultar minhas colheitas para visualizar suas informações.</td>
+<td>Consultar Colheita</td>
+</tr>
+<tr>
+<td><strong>US07 - Aceite</strong></td>
+<td>Apresentar uma lista das colheitas cadastradas com as informações:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Quantidade Colhida</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Qualidade</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Destino</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Data da Colheita</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Custo da Colheita</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Valor de Venda</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US08</td>
+<td>Como um agricultor, quero poder editar informações sobre minhas colheitas para ter um controle mais eficiente das informações.</td>
+<td>Editar Colheita</td>
+</tr>
+<tr>
+<td><strong>US08 - Aceite</strong></td>
+<td>Apresentar as informações da colheita selecionada e permitir edição nas informações:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Quantidade Colhida</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Qualidade</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Destino</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Data da Colheita</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Custo da Colheita</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Valor de Venda</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US09</td>
+<td>Como um agricultor eu quero poder excluir minhas colheitas para manter apenas os registros importantes.</td>
+<td>Excluir Colheita</td>
+</tr>
+<tr>
+<td><strong>US09 - Aceite</strong></td>
+<td>Permitir a exclusão de colheita.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US10</td>
+<td>Como um agricultor, quero registrar meu estoque de itens para gerenciar meus produtos agrícolas.</td>
+<td>Cadastrar Item</td>
+</tr>
+<tr>
+<td><strong>US10 - Aceite</strong></td>
+<td>Apresentar formulário com informações como:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Nome do item</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Quantidade em estoque</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Validade do produto</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Custo/g</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Custo/L</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Data da última compra</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US11</td>
+<td>Como um agricultor, quero poder consultar meu estoque de itens para não ser pego com possíveis imprevistos de falta de material.</td>
+<td>Consultar estoque</td>
+</tr>
+<tr>
+<td><strong>US11 - Aceite</strong></td>
+<td>Apresentar uma lista dos itens cadastrados no estoque com as informações:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Nome do item</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Quantidade em estoque</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Validade do produto</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Custo/g</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Custo/L</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Data da última compra</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US12</td>
+<td>Como agricultor, quero poder editar informações do meu estoque de itens para manter as informações atualizadas.</td>
+<td>Editar Item</td>
+</tr>
+<tr>
+<td><strong>US12 - Aceite</strong></td>
+<td>Apresentar as informações do item selecionado e permitir edição nas informações:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Nome do item</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Quantidade em estoque</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Validade do produto</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Custo/g</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Custo/L</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Data da última compra</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US13</td>
+<td>Como um agricultor eu quero poder excluir meus itens para manter apenas os registros importantes.</td>
+<td>Excluir Item</td>
+</tr>
+<tr>
+<td><strong>US13 - Aceite</strong></td>
+<td>Permitir a exclusão de item.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US14</td>
+<td>Como um agricultor eu quero ser avisado caso um item do meu estoque esteja abaixo do esperado</td>
+<td>Alerta de Item</td>
+</tr>
+<tr>
+<td><strong>US14 - Aceite</strong></td>
+<td>Enviar um alerta para o usuário quando um item do estoque ficar abaixo do pré-estipulado por ele</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US15</td>
+<td>Como um agricultor, quero poder registrar o uso de meus insumos do depósito para gerenciar os gastos dos meus produtos.</td>
+<td>Cadastrar Insumo</td>
+</tr>
+<tr>
+<td><strong>US15 - Aceite</strong></td>
+<td>O usuário deverá selecionar a plantação ou provável colheita que será utilizada o insumo e preencher os campos do formulário:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Selecionar o insumo pré-cadastrado no banco (caso tenha)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Nome do insumo (caso não cadastrado)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Quantidade (g)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Quantidade (L)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Valor (caso não cadastrado)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US16</td>
+<td>Como agricultor eu quero poder consultar os insumos utilizados nas plantações e colheitas para poder gerenciar os itens utilizados.</td>
+<td>Listar Insumos</td>
+</tr>
+<tr>
+<td><strong>US16 - Aceite</strong></td>
+<td>Listar os insumos cadastrados na colheita.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US17</td>
+<td>Como agricultor eu quero poder editar os insumos cadastrados na colheita para manter as informações atualizadas.</td>
+<td>Editar Insumo</td>
+</tr>
+<tr>
+<td><strong>US17 - Aceite</strong></td>
+<td>Permitir edição de todos os campos do insumo cadastrado na colheita.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US18</td>
+<td>Como um agricultor eu quero poder excluir meus insumos para manter apenas os registros importantes.</td>
+<td>Excluir Insumo</td>
+</tr>
+<tr>
+<td><strong>US18 - Aceite</strong></td>
+<td>Permitir a exclusão de insumo cadastrado em uma colheita.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US19</td>
+<td>Como um agricultor eu quero poder cadastrar meus funcionários para guardar informações relevantes</td>
+<td>Cadastrar Funcionário</td>
+</tr>
+<tr>
+<td><strong>US19 - Aceite</strong></td>
+<td>Apresentar um formulário com campos:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Nome</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Cargo</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Salário</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Data de contratação</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US20</td>
+<td>Como um agricultor eu quero poder listar as informações de funcionários para consultar dados importantes.</td>
+<td>Listar Funcionários</td>
+</tr>
+<tr>
+<td><strong>US20 - Aceite</strong></td>
+<td>Apresentar uma lista dos funcionários cadastrados.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US21</td>
+<td>Como um agricultor eu quero poder editar informações de funcionários para manter os dados atualizados</td>
+<td>Editar Funcionário</td>
+</tr>
+<tr>
+<td><strong>US21 - Aceite</strong></td>
+<td>Listar as informações do funcionário selecionado e permitir edição nos campos:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Cargo</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Salário</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Data da contratação</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US22</td>
+<td>Como agricultor eu quero poder excluir um funcionário cadastrado para manter os dados de funcionário atualizado.</td>
+<td>Excluir Funcionário</td>
+</tr>
+<tr>
+<td><strong>US22 - Aceite</strong></td>
+<td>Permitir excluir um funcionário cadastrado.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US23</td>
+<td>Como um agricultor eu quero poder cadastrar máquinas para gerenciar informações e gastos</td>
+<td>Cadastrar Máquinas</td>
+</tr>
+<tr>
+<td><strong>US23 - Aceite</strong></td>
+<td>Apresentar um formulário com:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Nome</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Tipo</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Fabricante</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Ano</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Gasto mensal</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US24</td>
+<td>Como agricultor eu quero listar as máquinas cadastradas para consultar informações.</td>
+<td>Consultar Máquina</td>
+</tr>
+<tr>
+<td><strong>US24 - Aceite</strong></td>
+<td>Apresentar uma lista das máquinas cadastradas.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US25</td>
+<td>Como agricultor eu quero poder editar informações das máquinas cadastradas para manter os dados atualizados.</td>
+<td>Editar Máquina</td>
+</tr>
+<tr>
+<td><strong>US25 - Aceite</strong></td>
+<td>Apresentar os dados da máquina selecionada e permitir edição.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US26</td>
+<td>Como agricultor eu quero poder excluir uma máquina cadastrada para manter as informações atualizadas.</td>
+<td>Excluir Máquina</td>
+</tr>
+<tr>
+<td><strong>US26 - Aceite</strong></td>
+<td>Permitir a exclusão de uma máquina cadastrada.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US27</td>
+<td>Como um agricultor, quero poder registrar uma atividade agrícola para gerenciar a manutenção das plantações.</td>
+<td>Cadastrar Atividade Agrícola</td>
+</tr>
+<tr>
+<td><strong>US27 - Aceite</strong></td>
+<td>Apresentar formulário com informações como:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Nome da atividade</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Descrição</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Data da Atividade</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US28</td>
+<td>Como um agricultor, quero poder consultar minhas atividades agrícolas para ter um melhor controle sobre elas.</td>
+<td>Listar Atividades Agrícolas</td>
+</tr>
+<tr>
+<td><strong>US28 - Aceite</strong></td>
+<td>Apresentar uma tela com a lista das atividades agrícolas com as informações:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Nome da atividade</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Descrição</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Data</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Funcionário</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Máquina</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Insumo</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Permitindo o Agricultor excluir esta atividade se for de seu interesse.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US29</td>
+<td>Como agricultor eu quero poder editar informações das atividades agrícolas cadastradas para manter os dados atualizados.</td>
+<td>Editar Atividade Agrícola</td>
+</tr>
+<tr>
+<td><strong>US29 - Aceite</strong></td>
+<td>Permitir edição dos campos:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Nome da atividade</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Descrição</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Data</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Funcionário</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Máquina</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Insumo</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US30</td>
+<td>Como agricultor eu quero poder excluir uma atividade agrícola cadastrada para manter as informações atualizadas.</td>
+<td>Excluir Atividade Agrícola</td>
+</tr>
+<tr>
+<td><strong>US30 - Aceite</strong></td>
+<td>Permitir a exclusão de uma atividade agrícola cadastrada.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US31</td>
+<td>Como um agricultor, quero registrar meus custos e receitas específicos para gerenciar meus gastos na plantação.</td>
+<td>Cadastrar Custo</td>
+</tr>
+<tr>
+<td><strong>US31 - Aceite</strong></td>
+<td>Será preciso selecionar uma plantação já cadastrada e apresentar formulário com informações como:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Nome do custo</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Tipo (tipo de custo)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Descrição</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Valor</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Data</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US32</td>
+<td>Como um agricultor, quero poder consultar meus custos para ter um melhor controle financeiro.</td>
+<td>Consultar Custo</td>
+</tr>
+<tr>
+<td><strong>US32 - Aceite</strong></td>
+<td>Apresentar uma tela com a lista dos gastos com uma plantação com as informações:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Nome do custo</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Tipo (tipo de custo)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Descrição</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Valor</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Data</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US33</td>
+<td>Como agricultor eu quero poder editar um custo cadastrado em plantação para manter os dados atualizados.</td>
+<td>Editar Custo</td>
+</tr>
+<tr>
+<td><strong>US33 - Aceite</strong></td>
+<td>Permitir edição nos campos</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Nome do custo</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Tipo (tipo de custo)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Descrição</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Valor</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>- Data</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US34</td>
+<td>Como agricultor eu quero poder excluir um custo cadastrado para manter as informações atualizadas.</td>
+<td>Excluir Custo</td>
+</tr>
+<tr>
+<td><strong>US34 - Aceite</strong></td>
+<td>Permitir a exclusão de um custo cadastrado.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US35</td>
+<td>Como um agricultor, quero ter acesso a informações do clima e previsão do tempo para me preparar com antecedência para possíveis ameaças às minhas plantações.</td>
+<td>Ver Previsão do Tempo</td>
+</tr>
+<tr>
+<td><strong>US35 - Aceite</strong></td>
+<td>Apresentar uma tela com informações do clima com previsões do tempo.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US36</td>
+<td>Como um agricultor, quero receber alertas de mudanças climáticas para me preparar o quanto antes para possíveis ameaças às plantações.</td>
+<td>Enviar Alertas do Clima</td>
+</tr>
+<tr>
+<td><strong>US36 - Aceite</strong></td>
+<td>Enviar notificações de alerta com mudanças climáticas com no mínimo 24h de antecedência e condições adversas.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US37</td>
+<td>Como usuário eu quero poder personalizar as notificações para receber alertas em horários específicos.</td>
+<td>Personalizar Notificação</td>
+</tr>
+<tr>
+<td><strong>US37 - Aceite</strong></td>
+<td>Permitir a escolha do horário das notificações do dia (das 6 às 21, por exemplo).</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US38</td>
+<td>Como um usuário, quero poder visualizar algumas informações como previsão do tempo e dados do estoque sem precisar abrir o aplicativo para poupar tempo.</td>
+<td>Criar Widget</td>
+</tr>
+<tr>
+<td><strong>US38 - Aceite</strong></td>
+<td>Criar um Widget para o usuário ver as informações do aplicativo na tela inicial do celular.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US39</td>
+<td>Como um usuário, quero poder fazer backup dos relatórios e dados para ter segurança e oportunidade de recuperar informações.</td>
+<td>Fazer Backup</td>
+</tr>
+<tr>
+<td><strong>US39 - Aceite</strong></td>
+<td>Permitir o usuário fazer backup dos dados manualmente ou automaticamente.</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>US40</td>
+<td>Como agricultor eu quero poder exportar os relatórios gerados pelo aplicativo em formato PDF para ter fácil acesso e compartilhamento.</td>
+<td>Exportar Documentos para PDF</td>
+</tr>
+<tr>
+<td><strong>US40 - Aceite</strong></td>
+<td>Permitir o usuário exportar os relatórios completos da plantação com todas as informações relacionadas a ela (custos, insumos, funcionários, máquinas, atividades...).</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="45-tabela-de-backlog-do-produto">4.5 Tabela de Backlog do Produto</h2>
+<h3 id="tabela-11-backlog-do-produto">Tabela 11: Backlog do Produto</h3>
+<p>Sistema: xxxx – Backlog do produto</p>
+<table>
+<thead>
+<tr>
+<th><strong>Numeração</strong></th>
+<th><strong>Sprint</strong></th>
+<th><strong>Nome do requisito</strong></th>
+<th><strong>Tipo de requisito</strong></th>
+<th><strong>Priorização do requisito</strong></th>
+<th><strong>Descrição suscinta do requisito</strong></th>
+<th><strong>User stories (U.S.) associadas</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>7</td>
+<td>Cadastrar Plantação</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir o cadastro de plantações com informações como nome da plantação, tipo de cultura, área plantada, data de plantio e quantidade.</td>
+<td>US01</td>
+</tr>
+<tr>
+<td>02</td>
+<td>7</td>
+<td>Consultar Plantações</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir a visualização das plantações cadastradas.</td>
+<td>US02</td>
+</tr>
+<tr>
+<td>03</td>
+<td>7</td>
+<td>Editar Plantação</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir a edição de campos da plantação.</td>
+<td>US03</td>
+</tr>
+<tr>
+<td>04</td>
+<td>7</td>
+<td>Fechar Plantação</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir o usuário fechar (concluir) uma plantação.</td>
+<td>US04</td>
+</tr>
+<tr>
+<td>05</td>
+<td>7</td>
+<td>Excluir Plantação</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir o usuário excluir uma plantação cadastrada.</td>
+<td>US05</td>
+</tr>
+<tr>
+<td>06</td>
+<td>8</td>
+<td>Cadastrar Colheita</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir cadastro de colheitas.</td>
+<td>US06</td>
+</tr>
+<tr>
+<td>07</td>
+<td>8</td>
+<td>Consultar Colheitas</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir a visualização das colheitas cadastradas.</td>
+<td>US07</td>
+</tr>
+<tr>
+<td>08</td>
+<td>8</td>
+<td>Editar Colheita</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir a edição de campos da colheita.</td>
+<td>US08</td>
+</tr>
+<tr>
+<td>09</td>
+<td>8</td>
+<td>Excluir Colheita</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir a exclusão de uma colheita cadastrada.</td>
+<td>US09</td>
+</tr>
+<tr>
+<td>10</td>
+<td>9</td>
+<td>Cadastrar Item no Estoque</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir o cadastro de itens no estoque.</td>
+<td>US10</td>
+</tr>
+<tr>
+<td>11</td>
+<td>9</td>
+<td>Consultar Item no Estoque</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deve permitir o usuário consultar os itens cadastrados no estoque.</td>
+<td>US11</td>
+</tr>
+<tr>
+<td>12</td>
+<td>9</td>
+<td>Editar Item no Estoque</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deve permitir o usuário editar itens no estoque.</td>
+<td>US12</td>
+</tr>
+<tr>
+<td>13</td>
+<td>9</td>
+<td>Excluir Item no Estoque</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deve permitir a exclusão de um item cadastrado no estoque.</td>
+<td>US13</td>
+</tr>
+<tr>
+<td>14</td>
+<td>9</td>
+<td>Alerta de Item no Estoque</td>
+<td>Funcional</td>
+<td>Should</td>
+<td>O aplicativo deverá alertar sobre a necessidade de reabastecimento de insumos com base nos níveis mínimos definidos pelo usuário.</td>
+<td>US14</td>
+</tr>
+<tr>
+<td>15</td>
+<td>8</td>
+<td>Cadastrar Insumo</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir o cadastro de insumos agrícolas e seu uso nas plantações e colheitas.</td>
+<td>US15</td>
+</tr>
+<tr>
+<td>16</td>
+<td>8</td>
+<td>Listar Insumos</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir a listagem de insumos cadastrados em plantações e colheitas.</td>
+<td>US16</td>
+</tr>
+<tr>
+<td>17</td>
+<td>8</td>
+<td>Editar Insumo</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir a edição de informações nos insumos cadastrados.</td>
+<td>US17</td>
+</tr>
+<tr>
+<td>18</td>
+<td>8</td>
+<td>Excluir Insumo</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir a exclusão de um insumo cadastrado.</td>
+<td>US18</td>
+</tr>
+<tr>
+<td>19</td>
+<td>9</td>
+<td>Cadastrar Funcionário</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>O aplicativo deverá permitir o cadastro de funcionários com informações como nome, cargo, salário, data de contratação.</td>
+<td>US19</td>
+</tr>
+<tr>
+<td>20</td>
+<td>9</td>
+<td>Consultar Funcionário</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>O aplicativo deverá permitir a listagem de funcionários cadastrados.</td>
+<td>US20</td>
+</tr>
+<tr>
+<td>21</td>
+<td>9</td>
+<td>Editar Funcionário</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>O aplicativo deverá permitir a edição de informações de funcionário.</td>
+<td>US21</td>
+</tr>
+<tr>
+<td>22</td>
+<td>9</td>
+<td>Excluir Funcionário</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>O aplicativo deverá permitir a exclusão de um funcionário cadastrado.</td>
+<td>US22</td>
+</tr>
+<tr>
+<td>23</td>
+<td>9</td>
+<td>Cadastrar Máquina</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>O aplicativo deverá possibilitar o cadastro e gerenciamento de máquinas como nome, tipo, fabricante, ano e gasto mensal.</td>
+<td>US23</td>
+</tr>
+<tr>
+<td>24</td>
+<td>9</td>
+<td>Consultar Máquina</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>O aplicativo deverá permitir a listagem das máquinas cadastradas.</td>
+<td>US24</td>
+</tr>
+<tr>
+<td>25</td>
+<td>9</td>
+<td>Editar Máquina</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>O aplicativo deverá permitir a edição de máquinas cadastradas.</td>
+<td>US25</td>
+</tr>
+<tr>
+<td>26</td>
+<td>9</td>
+<td>Excluir Máquina</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>O aplicativo deverá permitir a exclusão de uma máquina cadastrada.</td>
+<td>US26</td>
+</tr>
+<tr>
+<td>27</td>
+<td>9</td>
+<td>Cadastrar Atividades Agrícolas</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>O aplicativo deverá permitir o registro de atividades agrícolas, como adubação, irrigação etc.</td>
+<td>US27</td>
+</tr>
+<tr>
+<td>28</td>
+<td>9</td>
+<td>Listar Atividades Agrícolas</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>O aplicativo deverá permitir a listagem de atividades agrícolas cadastradas em uma plantação.</td>
+<td>US28</td>
+</tr>
+<tr>
+<td>29</td>
+<td>9</td>
+<td>Editar Atividade Agrícola</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>O aplicativo deverá permitir a edição de uma atividade agrícola.</td>
+<td>US29</td>
+</tr>
+<tr>
+<td>30</td>
+<td>9</td>
+<td>Excluir Atividade Agrícola</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>O aplicativo deverá permitir a exclusão de uma atividade agrícola.</td>
+<td>US30</td>
+</tr>
+<tr>
+<td>31</td>
+<td>10</td>
+<td>Cadastrar Custos</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir o registro de custos.</td>
+<td>US31</td>
+</tr>
+<tr>
+<td>32</td>
+<td>10</td>
+<td>Listar Custos</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir a listagem de custos adicionais cadastradas em plantações.</td>
+<td>US32</td>
+</tr>
+<tr>
+<td>33</td>
+<td>10</td>
+<td>Editar Custo</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir a edição de um custo adicional cadastrado em uma plantação.</td>
+<td>US33</td>
+</tr>
+<tr>
+<td>34</td>
+<td>10</td>
+<td>Excluir Custo</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá permitir a exclusão de um custo adicional cadastrado em uma plantação.</td>
+<td>US34</td>
+</tr>
+<tr>
+<td>35</td>
+<td>7</td>
+<td>Apresentar Previsão do Tempo</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá integrar-se a APIs de previsão do tempo para fornecer dados meteorológicos precisos.</td>
+<td>US35</td>
+</tr>
+<tr>
+<td>36</td>
+<td>7</td>
+<td>Notificações de alertas climáticos</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá enviar notificações para o agricultor em caso de previsão de condições climáticas adversas, como geadas e ainda previsões de chuva com no mínimo 24h de antecedência.</td>
+<td>US36</td>
+</tr>
+<tr>
+<td>37</td>
+<td>7</td>
+<td>Personalizar Notificação</td>
+<td>Funcional</td>
+<td>Could</td>
+<td>O aplicativo deverá permitir o usuário personalizar as notificações para receber em um período específico do dia.</td>
+<td>US37</td>
+</tr>
+<tr>
+<td>38</td>
+<td>10</td>
+<td>Widget do Aplicativo</td>
+<td>Funcional</td>
+<td>Should</td>
+<td>O aplicativo deverá conter um widget no celular do cliente.</td>
+<td>US38</td>
+</tr>
+<tr>
+<td>39</td>
+<td>9</td>
+<td>Backup de dados</td>
+<td>Não Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá armazenar backups automáticos na nuvem para evitar perda de dados.</td>
+<td>US39</td>
+</tr>
+<tr>
+<td>40</td>
+<td>7</td>
+<td>Exportar relatório para PDF</td>
+<td>Funcional</td>
+<td>Must</td>
+<td>O aplicativo deverá possibilitar a exportação de relatórios de plantações com todas as informações relacionadas a ela em formato PDF.</td>
+<td>US40</td>
+</tr>
+</tbody>
+</table>
+<h2 id="referencias-bibliograficas">Referências Bibliográficas</h2>
+<ul>
+<li>
+<p>SCHWABER, Ken; SUTHERLAND, Jeff. The Scrum Guide: The Definitive Guide to Scrum. Disponível em: <a href="https://scrumguides.org">https://scrumguides.org</a>. Acesso em: 01 dez. 2024.</p>
+</li>
+<li>
+<p>REACT NATIVE. React Native Documentation. Disponível em: <a href="https://reactnative.dev">https://reactnative.dev</a>. Acesso em: 30 nov. 2024.</p>
+</li>
+<li>
+<p>NODE.JS FOUNDATION. Node.js Documentation. Disponível em: <a href="https://nodejs.org/en/docs/">https://nodejs.org/en/docs/</a>. Acesso em: 01 dez. 2024.</p>
+</li>
+<li>
+<p>XP EDUCAÇÃO. Extreme Programming (XP): entenda como funciona e saiba seus valores. Disponível em: <a href="https://blog.xpeducacao.com.br/extreme-programming-xp/">https://blog.xpeducacao.com.br/extreme-programming-xp/</a>. Acesso em: 01 dez. 2024.</p>
+</li>
+<li>
+<p>SCHWABER, Ken; SUTHERLAND, Jeff. O Guia do Scrum: o guia definitivo para o Scrum: as regras do jogo. Novembro de 2020. Disponível em: <a href="https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-PortugueseBR-3.0.pdf">https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-PortugueseBR-3.0.pdf</a>. Acesso em: 02 dez. 2024.</p>
+</li>
+<li>
+<p>MANGIATERRA, Bárbara. A situação e os desafios do pequeno agricultor no Brasil. Revista Cultivar, 28 jan. 2020. Disponível em: <a href="https://revistacultivar.com.br/artigos/a-situacao-e-os-desafios-do-pequeno-agricultor-no-brasil">https://revistacultivar.com.br/artigos/a-situacao-e-os-desafios-do-pequeno-agricultor-no-brasil</a>. Acesso em: 02 dez. 2024.</p>
+</li>
+</ul>
+<h2 id="tabela-integrantes-do-grupo">Tabela - Integrantes do Grupo</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Mat.</strong></th>
+<th><strong>Nome</strong></th>
+<th><strong>Função (responsabilidade)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>202016865</td>
+<td>Luis Felipe de Souza Braga</td>
+<td>FullStack</td>
+</tr>
+<tr>
+<td>231029725</td>
+<td>Mateus de Sousa Soares</td>
+<td>FullStack</td>
+</tr>
+<tr>
+<td>231034073</td>
+<td>Artur Cardoso da Silva</td>
+<td>FullStack</td>
+</tr>
+<tr>
+<td>231012100</td>
+<td>Felipe Henrique Oliveira Sousa</td>
+<td>FullStack</td>
+</tr>
+<tr>
+<td>231028989</td>
+<td>Joao Pedro Ferreira Moraes</td>
+<td>ScrumMaster/FullStack</td>
+</tr>
+<tr>
+<td>231026616</td>
+<td>Davi Emanuel Ribeiro de Oliveira</td>
+<td>FullStack</td>
+</tr>
+<tr>
+<td>202017147</td>
+<td>Thales Germano Vargas Lima</td>
+<td>FullStack</td>
+</tr>
+<tr>
+<td>211031593</td>
+<td>Andre Lopes de Sousa</td>
+<td>FullStack</td>
+</tr>
+<tr>
+<td>231011972</td>
+<td>Cauã Reis de Freitas</td>
+<td>FullStack</td>
+</tr>
+</tbody>
+</table>
+<h2 id="contribuicoes-dos-integrantes">Contribuições dos Integrantes</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Nome</strong></th>
+<th><strong>Contribuições</strong></th>
+<th><strong>Feito</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Artur</td>
+<td>Tópico 5</td>
+<td>11%</td>
+</tr>
+<tr>
+<td>André</td>
+<td>Revisão</td>
+<td>11%</td>
+</tr>
+<tr>
+<td>Cauã</td>
+<td>Formatação</td>
+<td>11%</td>
+</tr>
+<tr>
+<td>Davi</td>
+<td>Tópico 4</td>
+<td>11%</td>
+</tr>
+<tr>
+<td>Felipe</td>
+<td>Tópico 3</td>
+<td>11%</td>
+</tr>
+<tr>
+<td>João</td>
+<td>Tópico 1</td>
+<td>11%</td>
+</tr>
+<tr>
+<td>Luis</td>
+<td>Tópico 2</td>
+<td>11%</td>
+</tr>
+<tr>
+<td>Mateus</td>
+<td>Tópico 4</td>
+<td>11%</td>
+</tr>
+<tr>
+<td>Thales</td>
+<td>Tópico 2</td>
+<td>11%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="historico-de-revisoes">Histórico de Revisões</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Data</strong></th>
+<th><strong>Versão</strong></th>
+<th><strong>Descrição</strong></th>
+<th><strong>Autor</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>27/11/24</td>
+<td>1.0</td>
+<td>Criação do Documento</td>
+<td>Joao Pedro Ferreira Moraes</td>
+</tr>
+<tr>
+<td>01/12/2024</td>
+<td>1.1</td>
+<td>Adicionado o tópico de declaração do escopo do projeto com seus respectivos subtópicos</td>
+<td>Mateus de Sousa Soares</td>
+</tr>
+<tr>
+<td>02/12/2024</td>
+<td>1.2</td>
+<td>Formatação do documento.</td>
+<td>Cauã Reis de Freitas</td>
+</tr>
+<tr>
+<td>17/12/2024</td>
+<td>1.4</td>
+<td>Edição do backlog, cenários e histórias de usuário</td>
+<td>Mateus de Sousa Soares</td>
+</tr>
+<tr>
+<td>19/12/2024</td>
+<td>1.5</td>
+<td>Edição completa do documento, corrigindo as partes pontuadas pelo professor na correção</td>
+<td>Joao Pedro Ferreira Moraes</td>
+</tr>
+<tr>
+<td>19/12/2024</td>
+<td>1.6</td>
+<td>Adicao no GitHub</td>
+<td>Joao Pedro Ferreira Moraes</td>
+</tr>
+<tr>
+<td>10/01/2025</td>
+<td>1.7</td>
+<td>Revisao com base na correcao do professor</td>
+<td>Joao Pedro Ferreira Moraes</td>
+</tr>
+<tr>
+<td>30/01/2025</td>
+<td>1.8</td>
+<td>Mudancas com base do andamento do projeto</td>
+<td>Joao Pedro Ferreira Moraes</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>
