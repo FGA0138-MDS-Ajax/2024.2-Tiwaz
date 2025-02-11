@@ -14,73 +14,116 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { useFocusEffect } from "@react-navigation/native";
 import { listarPlantacoes } from "../services/plantacaoService";
-
+import { getPrevisao } from "../services/previsao";
+import { loadLocation } from "../services/location"; // Importa o serviço de localização
 
 export default function HomeScreen({ navigation }) {
   const [refreshing, setRefreshing] = useState(false);
   const [weatherData, setWeatherData] = useState({
-    condition: "Carregando...",
+    condition: "Indisponível",
     temperature: "--",
     rainForecast: "--",
   });
-
+  const [location, setLocation] = useState(null);
   const [statistics, setStatistics] = useState({
     totalPlantations: 0,
     totalProfit: 0,
   });
-  
-
-// Função para buscar plantações do backend
-const fetchPlantations = async () => {
-  setRefreshing(true); // Mostra que a tela está atualizando
-  try {
-    const response = await listarPlantacoes();
-    console.log("📌 Dados recebidos do backend:", response);
-
-    if (response && response.success && Array.isArray(response.data)) {
-      console.log("✅ Atualizando estado das plantações...");
-      setRecentPlantations(response.data); // Atualiza corretamente o estado
-      setStatistics({
-        totalPlantations: response.data.length,
-        totalProfit: response.data.reduce((acc, plant) => acc - (plant.custoInicial || 0), 0),
-      });
-    } else {
-      console.error("⚠️ Resposta inesperada do backend:", response);
-      setRecentPlantations([]);
-    }
-  } catch (error) {
-    console.error("❌ Erro ao listar plantações:", error);
-    Alert.alert("Erro", "Não foi possível carregar as plantações.");
-    setRecentPlantations([]);
-  } finally {
-    setRefreshing(false);
-  }
-};
-
-
-  
   const [recentPlantations, setRecentPlantations] = useState([]);
-  
-  {/* Função que simula a atualização dos dados da tela. */}
+
+  // Função para buscar plantações do backend
+  const fetchPlantations = async () => {
+    setRefreshing(true);
+    try {
+      const response = await listarPlantacoes();
+      if (response && response.success && Array.isArray(response.data)) {
+        setRecentPlantations(response.data);
+        setStatistics({
+          totalPlantations: response.data.length,
+          totalProfit: response.data.reduce(
+            (acc, plant) => acc - (plant.custoInicial || 0),
+            0
+          ),
+        });
+      } else {
+        console.error("Resposta inesperada do backend:", response);
+        setRecentPlantations([]);
+      }
+    } catch (error) {
+      console.error("Erro ao listar plantações:", error);
+      Alert.alert("Erro", "Não foi possível carregar as plantações.");
+      setRecentPlantations([]);
+    } finally {
+      setRefreshing(false);
+    }
+  };
+
+  // Função para buscar a previsão do tempo usando as coordenadas
+  const fetchPrevisao = async (latitude, longitude) => {
+    setRefreshing(true);
+    try {
+      const response = await getPrevisao(latitude, longitude);
+      console.log("📌 Dados da previsão:", response.current);
+      setWeatherData({
+        condition: response.current.condition,
+        temperature: response.current.temperature,
+        rainForecast: response.current.rainProbability,
+      });
+    } catch (error) {
+      console.error("❌ Erro na previsão do tempo:", error);
+      Alert.alert("Erro", "Não foi possível carregar a previsão do tempo.");
+      setWeatherData({
+        condition: "Indisponível",
+        temperature: "--",
+        rainForecast: "--",
+      });
+    } finally {
+      setRefreshing(false);
+    }
+  };
+
+  // Função para carregar a localização e depois buscar a previsão do tempo
+  const loadAndFetchWeather = async () => {
+    try {
+      const coords = await loadLocation(); // Obtém as coordenadas pelo serviço
+      setLocation(coords);
+      await fetchPrevisao(coords.latitude, coords.longitude); // Usa as coordenadas para buscar a previsão
+    } catch (error) {
+      Alert.alert("Erro", error.message);
+    }
+  };
+
+  // Atualização dos dados com pull-to-refresh
   const onRefresh = React.useCallback(async () => {
     setRefreshing(true);
-    await fetchPlantations(); // Chama a API do backend ao atualizar
+    await fetchPlantations();
+    await loadAndFetchWeather();
     setRefreshing(false);
-}, []);
+  }, []);
 
-useEffect(() => {
-  console.log("🧐 Estado atualizado - Plantações:", recentPlantations);
-}, [recentPlantations]);
+  // Carrega a previsão na inicialização
+  useEffect(() => {
+    loadAndFetchWeather();
+  }, []);
 
-  {/* Executa uma lógica sempre que a tela do componente recebe o foco, ou seja, quando o usuário navega para essa tela. */}
-
+  // Atualiza os dados quando a tela ganha foco
   useFocusEffect(
     React.useCallback(() => {
-      fetchPlantations(); // Chama a função corretamente
+      fetchPlantations();
+      loadAndFetchWeather();
     }, [])
   );
 
-  
+  // Função auxiliar para formatar valores monetários
+  const formatCurrency = (value) => {
+    const formattedValue = Math.abs(value).toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
+    return value < 0 ? `-${formattedValue}` : formattedValue;
+  };
+
+  // Exemplo de função para determinar cor do status (mantém seu código)
   const getStatusColor = (status) => {
     switch (status) {
       case "Em Crescimento":
@@ -92,15 +135,22 @@ useEffect(() => {
     }
   };
 
-  {/*Formata números em valores monetários no padrão brasileiro (BRL, R$).*/ }
-  const formatCurrency = (value) => {
-    const formattedValue = Math.abs(value).toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    });
-    return value < 0 ? `-${formattedValue}` : formattedValue;
+  const getWeatherIcon = (condition) => {
+    switch (condition.toLowerCase()) {
+      case "tempo limpo":
+        return ["sunny", "#FFD700"];
+      case "tempo nublado":
+        return ["cloud", "#90A4AE"];
+      case "chuva":
+        return ["rainy", "#2196F3"];
+      case "chuvas esparsas":
+        return ["rainy-outline", "#64B5F6"];
+      case "chuviscos":
+        return ["rainy-outline", "#81D4FA"];
+      default:
+        return ["cloud", "#90A4AE"];
+    }
   };
-
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -127,27 +177,31 @@ useEffect(() => {
             </Text>
           </View>
 
+          {/* Container de previsão do tempo */}
           <TouchableOpacity
             style={styles.weatherContainer}
             onPress={() => navigation.navigate("PrevisaoTempo")}
           >
-            <Ionicons name="cloud" size={40} color="#4FC3F7" />
+            <Ionicons 
+              name={getWeatherIcon(weatherData.condition)[0]} 
+              size={40} 
+              color={getWeatherIcon(weatherData.condition)[1]} />
             <View style={styles.weatherDetails}>
-              <Text style={styles.weatherTitle}>Condições Atuais</Text>
+              <Text 
+              style={styles.weatherTitle}>Condições Atuais</Text>
               <Text style={styles.weatherText}>
                 {weatherData.condition} • {weatherData.temperature}°C
               </Text>
               <Text style={styles.weatherSubtext}>
-                Próxima chuva em: {weatherData.rainForecast} dias
+                Humidade: {weatherData.rainForecast} %
               </Text>
             </View>
             <Ionicons name="chevron-forward" size={24} color="#388E3C" />
           </TouchableOpacity>
 
+          {/* Outros componentes da tela (ex.: resumo, lista de plantações, ações) */}
           <View style={styles.summaryContainer}>
-            <View
-              style={styles.summaryItem}
-            >
+            <View style={styles.summaryItem}>
               <Ionicons name="leaf" size={30} color="#388E3C" />
               <View>
                 <Text style={styles.summaryLabel}>Total de Plantações</Text>
@@ -157,9 +211,7 @@ useEffect(() => {
               </View>
             </View>
 
-            <View
-              style={styles.summaryItem}
-            >
+            <View style={styles.summaryItem}>
               <Ionicons name="cash" size={30} color="#388E3C" />
               <View>
                 <Text style={styles.summaryLabel}>Lucro Total</Text>
@@ -179,39 +231,58 @@ useEffect(() => {
                 <Text style={styles.seeAllText}>Ver Todas</Text>
               </TouchableOpacity>
             </View>
-                  
             {recentPlantations.length > 0 ? (
-    recentPlantations.map((plantation) => (
-        <View key={plantation.id} style={[styles.plantationItem, { padding: 12 }]}>
-            <View style={styles.plantationInfo}>
-                <Text style={styles.plantationName}>{plantation.nome}</Text>
-                <Text style={styles.plantationDetails}>
-                    {plantation.tipo} • {plantation.areaPlantada ? `${plantation.areaPlantada} hectares` : `${plantation.quantidadePlantada} unidades`}
-                </Text>
-                <Text style={[styles.statusText, { color: getStatusColor(plantation.status) }]}>
-                    {plantation.status}
-                </Text>
-            </View>
-        </View>
-    ))
-) : (
-    <Text style={{ textAlign: "center", color: "#888", marginTop: 10 }}>
-        Nenhuma plantação encontrada.
-    </Text>
-)}
-
-
+              recentPlantations.map((plantation) => (
+                <View
+                  key={plantation.id}
+                  style={[styles.plantationItem, { padding: 12 }]}
+                >
+                  <View style={styles.plantationIcon}>
+                    <Text style={styles.plantationName}>{plantation.nome}</Text>
+                    <Text style={styles.plantationDetails}>
+                      {plantation.tipo} •{" "}
+                      {plantation.areaPlantada
+                        ? `${plantation.areaPlantada} hectares`
+                        : `${plantation.quantidadePlantada} unidades`}
+                    </Text>
+                    <Text
+                      style={[
+                        styles.statusText,
+                        { color: getStatusColor(plantation.status) },
+                      ]}
+                    >
+                      {plantation.status}
+                    </Text>
+                  </View>
+                </View>
+              ))
+            ) : (
+              <Text
+                style={{
+                  textAlign: "center",
+                  color: "#888",
+                  marginTop: 10,
+                }}
+              >
+                Nenhuma plantação encontrada.
+              </Text>
+            )}
           </View>
 
-           {/* Linha 1: Gerenciar Plantações + Baixar PDF */}
-           <View style={styles.doubleActionsContainer}>
+          {/* Ações rápidas (ex.: Gerenciar Plantações, Baixar Relatório, etc.) */}
+          <View style={styles.doubleActionsContainer}>
             <TouchableOpacity
-              style={[styles.actionButton, styles.actionButtonGerenciarPlantacoes]}
+              style={[
+                styles.actionButton,
+                styles.actionButtonGerenciarPlantacoes,
+              ]}
               onPress={() => navigation.navigate("VizualizarPlantacoes")}
               activeOpacity={0.8}
             >
               <Ionicons name="leaf" size={28} color="#fff" />
-              <Text style={styles.actionButtonText}>Gerenciar Plantações</Text>
+              <Text style={styles.actionButtonText}>
+                Gerenciar Plantações
+              </Text>
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -220,11 +291,12 @@ useEffect(() => {
               activeOpacity={0.8}
             >
               <Ionicons name="document-text" size={28} color="#fff" />
-              <Text style={styles.actionButtonText}>Baixar Relatorio (PDF)</Text>
+              <Text style={styles.actionButtonText}>
+                Baixar Relatorio (PDF)
+              </Text>
             </TouchableOpacity>
           </View>
 
-        {/* Linha 2: Estoque + Custos */}
           <View style={styles.doubleActionsContainer}>
             <TouchableOpacity
               style={[styles.actionButton, styles.actionButtonEstoque]}
@@ -244,9 +316,9 @@ useEffect(() => {
               <Text style={styles.actionButtonText}>Gerenciar Custos</Text>
             </TouchableOpacity>
           </View>
-      </ScrollView>
-    </ImageBackground>
-    </SafeAreaView >
+        </ScrollView>
+      </ImageBackground>
+    </SafeAreaView>
   );
 }
 
@@ -398,71 +470,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginBottom: 10,
   },
-  actionButtonGerenciarPlantacoes: {
-    backgroundColor: "#388E3C",
-    width: "99%",
-    flex: 1,
-    marginRight: 10, // Espaço entre os botões
-    paddingVertical: 10,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 15,
-    marginBottom: 10,
-  },
-  actionButtonRelatorio: {
-    backgroundColor: "#D32F2F", // Vermelho
-    flex: 1,
-    marginLeft: 10, // Espaço entre os botões
-    paddingVertical: 10,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 15,
-    marginBottom: 10,
-  },
-  plantationItem: {
-    marginBottom: 8,
-    borderRadius: 10,
-    backgroundColor: "#ffffff",
-    padding: 20,
-    borderWidth: 1,
-    borderColor: "#e0e0e0",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 3.84,
-    elevation: 4,
-  },
-  plantationHeader: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 8,
-  },
-  plantationIcon: {
-    marginRight: 10,
-  },
-  plantationTitles: {
-    flex: 1,
-  },
-  plantationName: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: "#333",
-  },
-  plantationDetails: {
-    fontSize: 14,
-    color: "#666",
-  },
-  plantationStatus: {
-    alignItems: "flex-start",
-  },
-  statusText: {
-    fontSize: 14,
-    fontWeight: "600",
-  },
-  quickActions: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
   actionButton: {
     flexDirection: "column",
     alignItems: "center",
@@ -485,8 +492,55 @@ const styles = StyleSheet.create({
       },
     }),
   },
-  quickActionsContainer: {
-    marginTop: 0, // Espaço acima da seção de ações rápidas
+  actionButtonGerenciarPlantacoes: {
+    backgroundColor: "#388E3C",
+    width: "99%",
+    flex: 1,
+    marginRight: 10,
+    paddingVertical: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 15,
+    marginBottom: 10,
+  },
+  actionButtonRelatorio: {
+    backgroundColor: "#D32F2F",
+    flex: 1,
+    marginLeft: 10,
+    paddingVertical: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 15,
+    marginBottom: 10,
+  },
+  plantationItem: {
+    marginBottom: 8,
+    borderRadius: 10,
+    backgroundColor: "#ffffff",
+    padding: 20,
+    borderWidth: 1,
+    borderColor: "#e0e0e0",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3.84,
+    elevation: 4,
+  },
+  plantationIcon: {
+    marginRight: 10,
+  },
+  plantationName: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#333",
+  },
+  plantationDetails: {
+    fontSize: 14,
+    color: "#666",
+  },
+  statusText: {
+    fontSize: 14,
+    fontWeight: "600",
   },
   actionButtonText: {
     color: "#fff",
@@ -496,15 +550,10 @@ const styles = StyleSheet.create({
     marginTop: 8,
     flexShrink: 1,
   },
-  
-  doubleActionsContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
   actionButtonEstoque: {
     backgroundColor: "#1976D2",
     flex: 1,
-    marginRight: 10, // Espaço entre os dois botões menores
+    marginRight: 10,
     paddingVertical: 10,
     alignItems: "center",
     justifyContent: "center",
@@ -513,11 +562,10 @@ const styles = StyleSheet.create({
   actionButtonCustos: {
     backgroundColor: "#FF7043",
     flex: 1,
-    marginLeft: 10, // Espaço entre os dois botões menores
+    marginLeft: 10,
     paddingVertical: 10,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 15,
-    
   },
 });
